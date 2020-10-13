@@ -3,11 +3,16 @@
    <div class="index__left">
      <div class="index__leftData">
         <p class="index__leftDataHeading">OneLink for All Links</p>
-        <p class="index__leftDataParagraph">Your links at one place</p>
+        <p class="index__leftDataParagraph">OneLink You need</p>
      </div>
    </div>
    <div class="index__right">
-     <div>
+     <div class="index__rightData">
+       <img src="img_avatar.png" alt="Avatar" class="avatar">
+       <p>"Its really awesome!"</p>
+     </div>
+      <div class="index__rightData">
+       <img src="img_avatar.png" alt="Avatar" class="avatar">
        <p>"Its really awesome!"</p>
      </div>
    </div>
@@ -41,6 +46,9 @@ export default {
 }
 .index__leftData{
   padding: 20%;
+  margin-top:25% ;
+    align-items: center;
+
 }
 .index__leftDataHeading{
   color: #338ED9;
@@ -51,5 +59,30 @@ export default {
   color: white;
   font-size: 35px;
 }
-
+.index__right{
+  display: flex;
+  align-items: center;
+}
+.index__rightData{
+  margin: 35px;
+  width: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: grey;
+  
+}
+.index__rightData > p{
+  margin-left: 10px;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+}
 </style>

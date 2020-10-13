@@ -22,7 +22,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  @apply bg-gray-100;
+  background-color: lightgray;
 }
 
 *,
