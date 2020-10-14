@@ -1,88 +1,113 @@
 <template>
- <div class="index">
-   <div class="index__left">
-     <div class="index__leftData">
-        <p class="index__leftDataHeading">OneLink for All Links</p>
-        <p class="index__leftDataParagraph">OneLink You need</p>
-     </div>
-   </div>
-   <div class="index__right">
-     <div class="index__rightData">
-       <img src="img_avatar.png" alt="Avatar" class="avatar">
-       <p>"Its really awesome!"</p>
-     </div>
-      <div class="index__rightData">
-       <img src="img_avatar.png" alt="Avatar" class="avatar">
-       <p>"Its really awesome!"</p>
-     </div>
-   </div>
- </div>
+  <div>
+    <Navbar />
+    <div class="index">
+      <div class="index__left">
+        <p class="logo">OneLink</p>
+        <p class="tagline">OneLink is all you Need</p>
+        <span>Connect your audience with OneLink</span>
+        <h1>Create Your Own OneLink Here</h1>
+        <form >
+          <div class="index__leftGetStarted">
+              <div  class="index__leftGetStartedInput">
+             
+                <div class="onelink">
+                  <p>Onelink.com/</p>
+                </div>
+                <input type="text" placeholder="yourname" />
+               </div>
+            
+            <button type="submit">
+              <p>Get Started</p>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="index__right">
+        <div class="index__image">
+          <img src="../assets/img/cascio.png" alt="cascio image" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Navbar from "../components/Navbar";
 export default {
-
-    // Global page headers (https://go.nuxtjs.dev/config-head)
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'OneLink',
+    title: "OneLink | The Only link for all your sites.",
     meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: 'OneLink is a site for all your personal links at one place.' },
-      { name: 'keyword', content: 'OneLink socail media facebook instagram snapchat whatsapp website portfolio' },
-    ],
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "description",
+        content: "OneLink is a site for all your personal links at one place."
+      },
+      {
+        name: "keyword",
+        content:
+          "OneLink socail media facebook instagram snapchat whatsapp website portfolio"
+      }
+    ]
   },
-}
+  components: {
+    Navbar
+  }
+};
 </script>
 
 <style>
-.index{
+.index {
   display: flex;
   flex-direction: row;
-}
-.index__left{
-  height: 100vh;
-  width: 50vw;
-  background-color: #1B3D58;
-}
-.index__leftData{
-  padding: 20%;
-  margin-top:25% ;
-    align-items: center;
-
-}
-.index__leftDataHeading{
-  color: #338ED9;
-  font-size: 50px;
-  font-weight: 800;
-}
-.index__leftDataParagraph{
-  color: white;
-  font-size: 35px;
-}
-.index__right{
-  display: flex;
   align-items: center;
+  margin-left: 15%;
+  margin-top: 5%;
 }
-.index__rightData{
-  margin: 35px;
-  width: 300px;
-  background-color: white;
+.index__leftGetStarted{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom:10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  
+}
+.index__leftGetStartedInput{
+  border: 2px solid black;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 10px;
-  border-radius: 10px;
-  box-shadow: grey;
-  
 }
-.index__rightData > p{
-  margin-left: 10px;
+.index__leftGetStartedInput >input{
+  border: none;
 }
-.avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: red;
+.onelink > p{
+  font-size: large;
+}
+.index__leftGetStarted >button{
+  background-color: black;
+  color: white;
+  height: 48px;
+
+}
+.logo {
+  font-weight: 200;
+  font-size: large;
+}
+.tagline {
+  font-weight: 800;
+  font-size: 50px;
+}
+span {
+  margin-top: 20%;
+}
+.index__image > img {
+  object-fit: contain;
+  width: 600px;
+  height: 600px;
 }
 </style>
