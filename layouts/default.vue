@@ -1,8 +1,18 @@
 <template>
   <div>
     <Nuxt />
+   
   </div>
 </template>
+
+<script>
+
+
+export default {
+  
+
+}
+</script>
 
 <style>
 html {
@@ -59,4 +69,7 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+
+
 </style>
