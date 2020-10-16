@@ -10,7 +10,7 @@
           <p class="logoOneLink">OneLink</p>
           <p class="tagline">OneLink is all you Need</p>
           <span>Connect your audience with OneLink</span>
-          <h1>Create Your Own OneLink Here</h1>
+          <h1 class="cta">Create Your Own OneLink Here</h1>
           <form>
             <div class="index__leftGetStarted">
               <div class="index__leftGetStartedInput">
@@ -67,6 +67,7 @@
     </div>
 
     <div class="index__faq">
+      FAQ will be here
     </div>
 
     <div class="index__CTA">
@@ -231,6 +232,11 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   animation: typing 4s steps(22, end) forwards, blink 1s infinite;
+}
+.cta{
+    white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(22, end) forwards infinite, blink 1s infinite;
 }
 
 @keyframes typing {
