@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <Nuxt />
-   
+  <div class="cursor">
+    <Nuxt /> 
   </div>
 </template>
 
 <script>
 
-
 export default {
   
-
+mounted(){
+      
+}
 }
 </script>
 
@@ -70,6 +70,8 @@ html {
   background-color: #35495e;
 }
 
-
+body{
+  height: 100vh;
+}
 
 </style>
