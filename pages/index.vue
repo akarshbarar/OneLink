@@ -67,7 +67,63 @@
     </div>
 
     <div class="index__faq">
-      FAQ will be here
+     
+     <section>
+      
+       <div class="container">
+          <h1>FAQ</h1>
+         <div class="accordion">
+
+           <div class="accordion__items" id="question1">
+             <a class="accordion__link" href="#question1">
+               What is OneLink?
+               <i class="fa fa-plus" ></i>
+               <i class="fa fa-remove"></i>
+             </a>
+             <div class="answer">
+             <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?
+             </p>
+             </div>
+           </div>
+
+           <div class="accordion__items" id="question2">
+             <a class="accordion__link" href="#question2">
+               Where should I use OnLink?
+               <i class="fa fa-plus" ></i>
+               <i class="fa fa-remove"></i>
+             </a>
+             <div class="answer">
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?
+              </p>
+             </div>
+           </div>
+
+           <div class="accordion__items" id="question3">
+             <a class="accordion__link" href="#question3">
+               Why should I use OneLink?
+               <i class="fa fa-plus" ></i>
+               <i class="fa fa-remove"></i>
+             </a>
+             <div class="answer">
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?
+               </p>
+             </div>
+           </div>
+
+          <div class="accordion__items" id="question4">
+             <a class="accordion__link" href="#question4">
+              Price of OneLink?
+               <i class="fa fa-plus" ></i>
+               <i class="fa fa-remove"></i>
+             </a>
+             <div class="answer">
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
     </div>
 
     <div class="index__CTA">
@@ -113,7 +169,95 @@ export default {
 </script>
 
 <style>
+/* ACCORION */
+.index__faq{
+  font-family: 'Roboto',sans-serif;
+  box-sizing: border-box;
+  color: #fff;
+  text-align: center;
 
+}
+
+.index__faq >section{
+  width: 100%;
+  height:fit-content;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width: 100%;
+  max-width: 80rem;
+  margin:0 auto;
+  padding: 0 1.5rem;
+
+}
+.accordion__items{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: .4rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: .5rem 2px .5rem rgba(0, 0, 0, 0.1);
+
+}
+.accordion__link{
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+}
+.accordion__link i {
+  color: #e7d5ff;
+  padding: .5rem;
+}
+.accordion__link .fa-remove{
+  display: none;
+}
+.answer{
+  overflow: hidden;
+  max-height: 0;
+  position: relative;
+  background-color: #1f2124;
+  transition: max-height 650ms;
+   
+}
+.answer::before{
+  content: "";
+  position: absolute;
+  width: .6rem;
+  height: 90%;
+  background-color: #8fc460;
+  top:50%;
+  left: 0;
+  transform: translateY(-50%);
+ 
+  }
+  .answer p{
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.6);
+    padding: 2rem;
+  }
+  .accordion__items:hover .answer{
+      max-height: 20rem;
+  }
+  
+ .accordion__link .fa-remove:target .answer{
+   max-height: 0;
+ }
+ .accordion__items:hover .accordion__link .fa-plus{
+   display: none;
+ }
+  .accordion__items:hover .accordion__link .fa-remove{
+   display: block;
+ }
+/* ACCORDION */
 
 .index__middledata{
   width: 50%;
