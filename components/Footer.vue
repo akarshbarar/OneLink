@@ -15,15 +15,44 @@
     </div>
     <div class="footer__newsletter">
       <h1>Sign up for News Letter and updates</h1>
-      <input type="email" required placeholder="Enter Email"/>
-      <button>Subscribe</button>
+      <!-- <input type="email" required placeholder="Enter Email"/>
+      <button>Subscribe</button> -->
+     <div id='wrap'>
+      <div class='field'></div>
+      <form class='signup' @submit.prevent="subscribe">
+        <input class='email' placeholder='email' type='email'>
+        <div class='btnwrap'>
+          <div class='spark'></div>
+          <div class='spark'></div>
+          <div class='spark'></div>
+          <div class='spark'></div>
+          <div class='spark'></div>
+          <div class='spark'></div>
+          <b>Subscribe</b>
+          <div class='blob'></div>
+          <input type='submit' value='Subscribe'>
+        </div>
+      </form>
+    </div>
+
+
+
     </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
 
+mounted(){
+
+},
+methods:{
+  subscribe:function(){
+    
+  }
+}
 
 }
 </script>
@@ -89,5 +118,8 @@ export default {
 }
 
 
+
+
+/* SUBSCRIBE */
 
 </style>

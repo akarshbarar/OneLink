@@ -47,6 +47,12 @@
       </div>
     </section>
 
+  <div class="index__slider">
+       
+   
+
+  </div>
+
     <div class="index__middle">
       <div class="index__middleRow">
         <div class="index__middleRowSVG">
@@ -256,6 +262,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 export default {
@@ -280,11 +288,18 @@ export default {
     Footer
   },
   methods: {},
-  mounted() {}
+  mounted() {
+
+  }
 };
 </script>
 
 <style>
+
+
+
+
+
 /* ACCORION */
 .index__faq {
   font-family: "Roboto", sans-serif;
@@ -990,4 +1005,17 @@ span {
   padding-top: 15%;
   margin-left: 15%;
 }
+
+
+
+
+
+
+/* slider */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+
+
 </style>
