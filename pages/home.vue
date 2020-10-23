@@ -1,400 +1,733 @@
 <template>
   <div class="home">
-      <Header/>
-        <div class="home__content">
-            <div class="home__contentNavBar">
-                <img src="../assets/img/white.gif" alt="logo" class="home__contentNavbarLogo"/>
-                <p>Logout</p>
-            </div>
-            <div class="home__contentLinkArea">
-               
-            <section class="wrapperr">
-              <ul class="tabs">
-                <li class="active">Content</li>
-                <li>Analytics</li>
-                <li>Pro</li>
-              </ul>
 
-              <ul class="tab__content">
-                <li class="active">
-                  <div class="content__wrapperr">
-                    <h2 class="text-color">Content</h2>
-                    
-                  
-                  </div>
-                </li>
-                <li>
-                  <div class="content__wrapperr">
-                    <h2 class="text-color">Analytics</h2>
-                    
-                  </div>
-                </li>
-                <li>
-                  <div class="content__wrapperr">
-                    <h2 class="text-color">Pro</h2>
-                    
-                  </div>
-                </li>
-              </ul>
-            </section>
-            </div>
-            <div class="home__contentSimulator">
-               <div class="smartphone">
-                    <div class="content">
-                        <img src="https://gravatar.com/avatar/06249b901095e80d208034c1e220d5ef?s=400&d=robohash&r=x" alt="Avatar" class="avatar">
-                        <h3>@akarshbarar</h3>
-                        <p> hello</p>
-                    </div>
+      <div class="page-wrapper chiller-theme toggled">
+          <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </a>
+          <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+              <div class="sidebar-brand">
+                <a href="#">pro sidebar</a>
+                <div id="close-sidebar">
+                 <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
+              </div>
+              <div class="sidebar-header">
+                <div class="user-pic">
+                  <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                </div>
+                <div class="user-info">
+                  <span class="user-name">Jhon
+                    <strong>Smith</strong>
+                  </span>
+                  <span class="user-role">Administrator</span>
+                  <span class="user-status">
+                    <i class="fa fa-circle"></i>
+                    <span>Online</span>
+                  </span>
+                </div>
+              </div>
+              <!-- sidebar-header  -->
+              <div class="sidebar-search">
+                <div>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-menu" placeholder="Search...">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- sidebar-search  -->
+              <div class="sidebar-menu">
+                <ul>
+                  <li class="header-menu">
+                    <span>General</span>
+                  </li>
+                  <li class="sidebar-dropdown">
+                    <a href="#">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                      <span>Dashboard</span>
+                      <span class="badge badge-pill badge-warning">New</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                      <ul>
+                        <li>
+                          <a href="#">Dashboard 1
+                            <span class="badge badge-pill badge-success">Pro</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">Dashboard 2</a>
+                        </li>
+                        <li>
+                          <a href="#">Dashboard 3</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="sidebar-dropdown">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span>E-commerce</span>
+                      <span class="badge badge-pill badge-danger">3</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                      <ul>
+                        <li>
+                          <a href="#">Products
+
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">Orders</a>
+                        </li>
+                        <li>
+                          <a href="#">Credit cart</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="sidebar-dropdown">
+                    <a href="#">
+                      <i class="fa fa-diamond" aria-hidden="true"></i>
+                      <span>Components</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                      <ul>
+                        <li>
+                          <a href="#">General</a>
+                        </li>
+                        <li>
+                          <a href="#">Panels</a>
+                        </li>
+                        <li>
+                          <a href="#">Tables</a>
+                        </li>
+                        <li>
+                          <a href="#">Icons</a>
+                        </li>
+                        <li>
+                          <a href="#">Forms</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="sidebar-dropdown">
+                    <a href="#">
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                      <span>Charts</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                      <ul>
+                        <li>
+                          <a href="#">Pie chart</a>
+                        </li>
+                        <li>
+                          <a href="#">Line chart</a>
+                        </li>
+                        <li>
+                          <a href="#">Bar chart</a>
+                        </li>
+                        <li>
+                          <a href="#">Histogram</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="sidebar-dropdown">
+                    <a href="#">
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                      <span>Maps</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                      <ul>
+                        <li>
+                          <a href="#">Google maps</a>
+                        </li>
+                        <li>
+                          <a href="#">Open street map</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="header-menu">
+                    <span>Extra</span>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <span>Documentation</span>
+                      <span class="badge badge-pill badge-primary">Beta</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                      <span>Calendar</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-folder"></i>
+                      <span>Examples</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- sidebar-menu  -->
             </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+              <a href="#">
+                <i class="fa fa-bell"></i>
+                <span class="badge badge-pill badge-warning notification">3</span>
+              </a>
+              <a href="#">
+                <i class="fa fa-envelope"></i>
+                <span class="badge badge-pill badge-success notification">7</span>
+              </a>
+              <a href="#">
+                <i class="fa fa-cog"></i>
+                <span class="badge-sonar"></span>
+              </a>
+              <nuxt-link to="/">
+                <i class="fa fa-power-off"></i>
+              </nuxt-link>
+            </div>
+          </nav>
+          <!-- sidebar-wrapper  -->
+          <main class="page-content">
+            
+
+          </main>
+          <!-- page-content" -->
         </div>
+        <!-- page-wrapper -->
   </div>
 </template>
 
 <script>
-import Header from '../components/Header';
 import $ from 'jquery'
 export default {
-  components:{
-    Header
-  },
   mounted(){
-    $(document).ready(function(){
-	
-	// Variables
-	var clickedTab = $(".tabs > .active");
-	var tabwrapperr = $(".tab__content");
-	var activeTab = tabwrapperr.find(".active");
-	var activeTabHeight = activeTab.outerHeight();
-	
-	// Show tab on page load
-	activeTab.show();
-	
-	// Set height of wrapperr on page load
-	tabwrapperr.height(activeTabHeight);
-	
-	$(".tabs > li").on("click", function() {
-		
-		// Remove class from active tab
-		$(".tabs > li").removeClass("active");
-		
-		// Add class active to clicked tab
-		$(this).addClass("active");
-		
-		// Update clickedTab variable
-		clickedTab = $(".tabs .active");
-		
-		// fade out active tab
-		activeTab.fadeOut(250, function() {
-			
-			// Remove active class all tabs
-			$(".tab__content > li").removeClass("active");
-			
-			// Get index of clicked tab
-			var clickedTabIndex = clickedTab.index();
-
-			// Add class active to corresponding tab
-			$(".tab__content > li").eq(clickedTabIndex).addClass("active");
-			
-			// update new active tab
-			activeTab = $(".tab__content > .active");
-			
-			// Update variable
-			activeTabHeight = activeTab.outerHeight();
-			
-			// Animate height of wrapperr to new tab height
-			tabwrapperr.stop().delay(50).animate({
-				height: activeTabHeight
-			}, 500, function() {
-				
-				// Fade in active tab
-				activeTab.delay(50).fadeIn(250);
-				
-			});
-		});
-	});
-	
-	// Variables
-	var colorButton = $(".colors li");
-	
-	colorButton.on("click", function(){
-		
-		// Remove class from currently active button
-		$(".colors > li").removeClass("active-color");
-		
-		// Add class active to clicked button
-		$(this).addClass("active-color");
-		
-		// Get background color of clicked
-		var newColor = $(this).attr("data-color");
-		
-		// Change background of everything with class .bg-color
-		$(".bg-color").css("background-color", newColor);
-		
-		// Change color of everything with class .text-color
-		$(".text-color").css("color", newColor);
-	});
+    $(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(200);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+  }
 });
+
+$("#close-sidebar").click(function() {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function() {
+  $(".page-wrapper").addClass("toggled");
+});
+
+
   }
 }
 </script>
 
 <style>
-.avatar {
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: lightgrey;
-}
-.content{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
- 
-  
-}
-.home__content{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    
-    
-}
-.home__contentNavBar{
-  border: 1px solid lightgray;
-    padding: 5px 5px;
-    width: 5%;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: #333;
-}
-.home__contentNavbarLogo{
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-.home__contentLinkArea{
-  background-color: gray;
-    flex: 5;
-
-}
-.home__contentSimulator{
-    flex: 5;
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-/* SMARTPHONE */
-/* The device with borders */
-.smartphone {
-   top: 35px;
-  position: relative;
-  width: 360px;
-  height: 640px;
-  margin: auto;
-  border: 16px black solid;
-  border-top-width: 60px;
-  border-bottom-width: 60px;
-  border-radius: 36px;
-  
+@keyframes sonar {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+body {
+  font-size: 0.9rem;
+}
+.page-wrapper .sidebar-wrapper,
+.sidebar-wrapper .sidebar-brand > a,
+.sidebar-wrapper .sidebar-dropdown > a:after,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before,
+.sidebar-wrapper ul li a i,
+.page-wrapper .page-content,
+.sidebar-wrapper .sidebar-search input.search-menu,
+.sidebar-wrapper .sidebar-search .input-group-text,
+.sidebar-wrapper .sidebar-menu ul li a,
+#show-sidebar,
+#close-sidebar {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* The horizontal line on the top of the device */
-.smartphone:before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 5px;
-  position: absolute;
- 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #333;
-  border-radius: 10px;
+/*----------------page-wrapper----------------*/
+
+.page-wrapper {
+  height: 100vh;
 }
 
-/* The circle on the bottom of the device */
-.smartphone:after {
-  content: '';
-  display: block;
+.page-wrapper .theme {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.page-wrapper .theme.chiller-theme {
+  background: #1e2229;
+}
+
+/*----------------toggeled sidebar----------------*/
+
+.page-wrapper.toggled .sidebar-wrapper {
+  left: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 300px;
+  }
+}
+/*----------------show sidebar button----------------*/
+#show-sidebar {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  border-radius: 0 4px 4px 0px;
   width: 35px;
-  height: 35px;
-  position: absolute;
-  left: 50%;
-  bottom: -65px;
-  transform: translate(-50%, -50%);
-  background: #333;
-  border-radius: 50%;
+  transition-delay: 0.3s;
+}
+.page-wrapper.toggled #show-sidebar {
+  left: -40px;
+}
+/*----------------sidebar-wrapper----------------*/
+
+.sidebar-wrapper {
+  width: 260px;
+  height: 100%;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  z-index: 999;
 }
 
-/* The screen (or content) of the device */
-.smartphone .content {
+.sidebar-wrapper ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-wrapper a {
+  text-decoration: none;
+}
+
+/*----------------sidebar-content----------------*/
+
+.sidebar-content {
+  max-height: calc(100% - 30px);
+  height: calc(100% - 30px);
+  overflow-y: auto;
+  position: relative;
+}
+
+.sidebar-content.desktop {
+  overflow-y: hidden;
+}
+
+/*--------------------sidebar-brand----------------------*/
+
+.sidebar-wrapper .sidebar-brand {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-wrapper .sidebar-brand > a {
+  text-transform: uppercase;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.sidebar-wrapper .sidebar-brand #close-sidebar {
+  cursor: pointer;
+  font-size: 20px;
+}
+/*--------------------sidebar-header----------------------*/
+
+.sidebar-wrapper .sidebar-header {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.sidebar-wrapper .sidebar-header .user-pic {
+  float: left;
+  width: 60px;
+  padding: 2px;
+  border-radius: 12px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.sidebar-wrapper .sidebar-header .user-pic img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar-wrapper .sidebar-header .user-info {
+  float: left;
+}
+
+.sidebar-wrapper .sidebar-header .user-info > span {
+  display: block;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-role {
+  font-size: 12px;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-status {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-status i {
+  font-size: 8px;
+  margin-right: 4px;
+  color: #5cb85c;
+}
+
+/*-----------------------sidebar-search------------------------*/
+
+.sidebar-wrapper .sidebar-search > div {
+  padding: 10px 20px;
+}
+
+/*----------------------sidebar-menu-------------------------*/
+
+.sidebar-wrapper .sidebar-menu {
+  padding-bottom: 10px;
+}
+
+.sidebar-wrapper .sidebar-menu .header-menu span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 15px 20px 5px 20px;
+  display: inline-block;
+}
+
+.sidebar-wrapper .sidebar-menu ul li a {
+  /* display: inline-block; */
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+  padding: 8px 30px 8px 20px;
+}
+
+.sidebar-wrapper .sidebar-menu ul li a i {
+  margin-right: 10px;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
+  display: inline-block;
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  /* content: "\f105"; */
+  font-style: normal;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background: 0 0;
+  position: absolute;
+  right: 15px;
+  top: 14px;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
+  padding: 5px 0;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+  padding-left: 25px;
+  font-size: 13px;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
+  /* content: "\f111"; */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  font-style: normal;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 10px;
+  font-size: 8px;
+}
+
+.sidebar-wrapper .sidebar-menu ul li a span.label,
+.sidebar-wrapper .sidebar-menu ul li a span.badge {
+  float: right;
+  margin-top: 8px;
+  margin-left: 5px;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .badge,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label {
+  float: right;
+  margin-top: 0px;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-submenu {
+  display: none;
+}
+
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a:after {
+  transform: rotate(90deg);
+  right: 17px;
+}
+
+/*--------------------------side-footer------------------------------*/
+
+.sidebar-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+}
+
+.sidebar-footer > a {
+  flex-grow: 1;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+}
+
+.sidebar-footer > a .notification {
+  position: absolute;
+  top: 0;
+}
+
+.badge-sonar {
+  display: inline-block;
+  background: #980303;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  top: 0;
+}
+
+.badge-sonar:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #980303;
+  opacity: 0;
+  border-radius: 50%;
   width: 100%;
   height: 100%;
-  background: white;
-  align-items: center;
-  top: 10px;
-}
- /* Hide scrollbar for Chrome, Safari and Opera */
-.smartphone ::-webkit-scrollbar {
-  display: none;
+  animation: sonar 1.5s infinite;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.smartphone  {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-} 
-/* SMARTPHONE */
+/*--------------------------page-content-----------------------------*/
 
-
-/* TABS */
-
-
-.bg-color {
-  background-color: #46a1de;
-  transition-duration: .5s;
-}
-
-.text-color {
-  color: #46a1de;
-  transition-duration: .5s;
-}
-
-
-
-.wrapperr {
-  min-width: 600px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.tabs {
-  display: table;
-  table-layout: fixed;
+.page-wrapper .page-content {
+  display: inline-block;
   width: 100%;
-  -webkit-transform: translateY(5px);
-  transform: translateY(5px);
-}
-.tabs > li {
-  transition-duration: .25s;
-  display: table-cell;
-  list-style: none;
-  text-align: center;
-  padding: 20px 20px 25px 20px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  color: white;
-}
-.tabs > li:before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 120%;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.3);
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-  transition-duration: .25s;
-  border-radius: 5px 5px 0 0;
-}
-.tabs > li:hover:before {
-  -webkit-transform: translateY(70%);
-  transform: translateY(70%);
-}
-.tabs > li.active {
-  color: #50555a;
-}
-.tabs > li.active:before {
-  transition-duration: .5s;
-  background-color: white;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-
-.tab__content {
-  background-color: white;
-  position: relative;
-  width: 100%;
-  border-radius: 5px;
-}
-.tab__content > li {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  list-style: none;
-}
-.tab__content > li .content__wrapperr {
-  text-align: center;
-  border-radius: 5px;
-  width: 100%;
-  padding: 45px 40px 40px 40px;
-  background-color: white;
-}
-
-.content__wrapperr h2 {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 20px;
-  font-weight: 300;
-}
-.content__wrapperr img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.colors {
-  text-align: center;
+  padding-left: 0px;
   padding-top: 20px;
 }
-.colors > li {
-  list-style: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  margin: 0 10px;
-  cursor: pointer;
-  transition-duration: .2s;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-.colors > li:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  border-bottom: 10px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-}
-.colors > li.active-color {
-  -webkit-transform: scale(1.2) translateY(-10px);
-  transform: scale(1.2) translateY(-10px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  border-bottom: 20px solid rgba(0, 0, 0, 0.15);
-}
-.colors > li:nth-child(1) {
-  background-color: #2ecc71;
-}
-.colors > li:nth-child(2) {
-  background-color: #D64A4B;
-}
-.colors > li:nth-child(3) {
-  background-color: #8e44ad;
-}
-.colors > li:nth-child(4) {
-  background-color: #46a1de;
-}
-.colors > li:nth-child(5) {
-  background-color: #bdc3c7;
+
+.page-wrapper .page-content > div {
+  padding: 20px 40px;
 }
 
-/* TABS */
+.page-wrapper .page-content {
+  overflow-x: hidden;
+}
+
+/*------scroll bar---------------------*/
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #525965;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #525965;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #525965;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+/*-----------------------------chiller-theme-------------------------------------------------*/
+
+.chiller-theme .sidebar-wrapper {
+    background: #31353D;
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-header,
+.chiller-theme .sidebar-wrapper .sidebar-search,
+.chiller-theme .sidebar-wrapper .sidebar-menu {
+    border-top: 1px solid #3a3f48;
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+.chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-role,
+.chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-status,
+.chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+.chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
+.chiller-theme .sidebar-wrapper .sidebar-brand>a,
+.chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
+.chiller-theme .sidebar-footer>a {
+    color: #818896;
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
+.chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active>a,
+.chiller-theme .sidebar-wrapper .sidebar-header .user-info,
+.chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
+.chiller-theme .sidebar-footer>a:hover i {
+    color: #b8bfce;
+}
+
+.page-wrapper.chiller-theme.toggled #close-sidebar {
+    color: #bdbdbd;
+}
+
+.page-wrapper.chiller-theme.toggled #close-sidebar:hover {
+    color: #ffffff;
+}
+
+.chiller-theme .sidebar-wrapper ul li:hover a i,
+.chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
+.chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
+.chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
+    color: #16c7ff;
+    text-shadow:0px 0px 10px rgba(22, 199, 255, 0.5);
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
+.chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
+.chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
+.chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
+    background: #3a3f48;
+}
+
+.chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
+    color: #6c7b88;
+}
+
+.chiller-theme .sidebar-footer {
+    background: #3a3f48;
+    box-shadow: 0px -1px 5px #282c33;
+    border-top: 1px solid #464a52;
+}
+
+.chiller-theme .sidebar-footer>a:first-child {
+    border-left: none;
+}
+
+.chiller-theme .sidebar-footer>a:last-child {
+    border-right: none;
+}
+
 </style>

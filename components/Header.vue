@@ -6,13 +6,18 @@
               <p>OneLink : <a href="#">https://www.OneLink.com/akarshbarar</a></p>
              
           </div>
+       
       </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
 
+mounted(){
+     
+}
 }
 </script>
 
@@ -38,4 +43,8 @@ text-decoration: none;
     justify-content: space-between;
     align-content: center;
 }
+
+
+
+
 </style>
