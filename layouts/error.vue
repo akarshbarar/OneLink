@@ -6,8 +6,8 @@
         <h1>Error <span class="errorcode">404</span>: PAGE NOT FOUND</h1>
         <p class="output">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
         <p class="output">Please try to <nuxt-link to="/" class="back">go back</nuxt-link> or <nuxt-link to="/" class="back">return to the homepage</nuxt-link>.</p>
-        <p class="output">Good luck.</p>
-        </div>
+        <p class="output">Good luck .</p>
+       </div>
   </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
       rgba(32, 128, 32, 0.8) 3%,
       rgba(32, 128, 32, 0.2) 3%,
       transparent 100%);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   animation: scan 7.5s linear 0s infinite;
 }
 
@@ -94,7 +94,7 @@ export default {
   box-sizing: inherit;
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   max-width: 100%;
   padding: 4rem;
   text-transform: uppercase;
@@ -139,5 +139,10 @@ export default {
 
 .errorcode {
   color: white;
+}
+@media screen and (max-width: 480px) {
+  .terminal {
+      padding: 0rem;
+    }
 }
 </style>

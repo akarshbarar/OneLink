@@ -201,7 +201,47 @@
           </nav>
           <!-- sidebar-wrapper  -->
           <main class="page-content">
-            
+            <div class="home__pageContent">
+              <div class="home__pageContentLeft">
+                <label>Enter UserName</label>
+                <input type="text"  v-model="username" placeholder="Enter UserName"/>
+                <label> Enter Bio</label>
+                <input type="text" v-model="bio" placeholder="Enter Bio"/>
+                <hr/>
+                <h3>Add Links</h3>
+                		
+                <form @submit.prevent="addData">
+                  <input v-model="message" type="url" placeholder="Add a URL">
+        
+                  <button type="submit">Add</button>
+                </form>
+                <div class="example">
+                  <ul v-for="i in linkList" v-bind:key="i">
+                    <li >{{i}}</li>
+                  </ul>
+                </div>
+                
+              </div>
+              <div class="home__pageContentRight">
+                <div class="simulator">
+                    <div class="smartphone">
+                      <div class="content">
+                           <div class="user-pic">
+                            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                          </div>
+                          <p>@{{username}}</p>
+                          <p>{{bio}}</p>
+                          <div class="example">
+                            <ul v-for="i in linkList" v-bind:key="i">
+                              <li >{{i}}</li>
+                            </ul>
+                          </div>
+                          
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
 
           </main>
           <!-- page-content" -->
@@ -213,6 +253,36 @@
 <script>
 import $ from 'jquery'
 export default {
+  head(){
+    return {
+          link: [
+          {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
+          },
+          { 
+             rel:"stylesheet", 
+             href:"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", 
+             integrity:"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2", 
+             crossorigin:"anonymous"
+          }
+
+        ]
+    }
+  },
+   data(){
+        return{
+              username:'',
+              bio:'',
+             message:'',
+             linkList:[]
+        }
+    },
+    methods:{
+      addData:function(){
+          this.linkList.push(this.message)
+      }
+    },
   mounted(){
     $(".sidebar-dropdown > a").click(function() {
   $(".sidebar-submenu").slideUp(200);
@@ -243,6 +313,7 @@ $("#show-sidebar").click(function() {
   $(".page-wrapper").addClass("toggled");
 });
 
+// TODO LIST
 
   }
 }
@@ -729,5 +800,109 @@ body {
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
 }
+
+ /* https://codepen.io/azouaoui-med/pen/wpBadb */
+ /* https://fontawesome.com/v4.7.0/icon/calendar */
+
+
+ /* The device with borders */
+.smartphone {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content {
+  width: 100%;
+  height:100%;
+  background: white;
+  overflow: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  align-items: center;
+  }
+
+.content > .user-pic >img{
+  margin-top:25px ;
+  width: 100px;
+  height:100px;
+  object-fit: contain;
+  border-radius: 999px;
+  /* margin-left: 25%;
+  margin-right: 25%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.home__pageContent{
+  display: flex;
+  flex-direction: row;
+
+}
+.home__pageContentLeft{
+  display: flex;
+  flex-direction: column;
+  flex:3;
+  color: black;
+}
+.home__pageContentLeft >label {
+  margin-top: 10px;
+}
+.home__pageContentRight{
+  flex: 2;
+}
+
+
 
 </style>
