@@ -27,30 +27,60 @@
                    <button type="submit" class="login__submit">Add Link</button>
                 </form>
                 <div class="example">
-                  <ul v-for="i in titleList" v-bind:key="i" class="example__ul">
-                    <li class="example__li">{{i}}</li>
-                  </ul>
+                 
+                  <table class="table">
+                        <thead>
+                          <tr>
+                           
+                            <th scope="col">Title</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody v-for="i in linkList" v-bind:key="i">
+                          <tr >
+                            
+                            <td>{{i.title}}</td>
+                            <td>{{i.link}}</td>
+                            <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                            
+                          </tr>
+                         
+                        </tbody>
+                      </table>
                 </div>
                 
               </div>
               <div class="home__pageContentRight">
                 <div class="simulator">
                     <div class="smartphone">
-                      <div class="content">
+                      <div class="content" v-bind:class="backgroundColor">
                            <div class="user-pic">
                             <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
                           </div>
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
                           <div class="example">
-                            <ul v-for="i in titleList" v-bind:key="i">
-                              <li >{{i}}</li>
+                            <ul v-for="i in linkList" v-bind:key="i" class="list-group">
+                              <a v-bind:href="i.link" target="_blank" class="list-group-item border border-success list-group-item-action" >{{i.title}}</a>
                             </ul>
                           </div>
                           
                       </div>
                     </div>
                 </div>
+<button type="button" class="btn btn-success">Save</button>
+
+<button 
+   type="button" 
+   class="btn btn-danger" 
+   v-on:click.prevent ="change">
+    change
+  </button>
+
               </div>
             </div>
 
@@ -108,15 +138,35 @@ export default {
              title:'',
              titleList:[],
              linkList:[],
+             color:'white',
+             backgroundColor:"content"
 
         }
     },
     methods:{
       addData:function(){
-          this.linkList.push(this.link),
-          this.titleList.push(this.title)
+          this.linkList.push({
+            title:this.title,
+            link:this.link
+          }),
+          this.link="",
+          this.title=""
           
       },
+      change:function(){
+          console.log('====================================');
+          console.log("change clicked");
+          this.backgroundColor='contentRed';
+          console.log('====================================');
+      },
+      
+    },
+    computed:{
+      classObject:function(){
+          return {
+            color: 'red',
+          }
+      }
     }
 
 
@@ -176,6 +226,12 @@ export default {
   width: 100%;
   height:100%;
   background: white;
+  overflow: auto;
+}
+.smartphone .contentRed {
+  width: 100%;
+  height:100%;
+  background: red;
   overflow: auto;
 }
 

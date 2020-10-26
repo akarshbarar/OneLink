@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <a href="#" class="button--scroll animation animation--infinite animation--up-down">
+        <a href="#middle" class="button--scroll animation animation--infinite animation--up-down">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -53,7 +53,7 @@
 
   </div>
 
-    <div class="index__middle">
+    <div class="index__middle" id="middle">
       <div class="index__middleRow">
         <div class="index__middleRowSVG">
           <svg
