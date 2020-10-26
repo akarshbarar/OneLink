@@ -17,16 +17,18 @@
                 		
 
                 <form @submit.prevent="addData">
-       
-  <input type="url" name="name" class="question" id="nme" v-model="message" required autocomplete="off" />
+  <input type="text" name="name" class="question" id="nme" v-model="title" required autocomplete="off" />
+  <label for="nme"><span>Enter Title</span></label>
+
+  <input type="url" name="name" class="question" id="nme" v-model="link" required autocomplete="off" />
   <label for="nme"><span>Enter your URL</span></label>
 
 
                    <button type="submit" class="login__submit">Add Link</button>
                 </form>
                 <div class="example">
-                  <ul v-for="i in linkList" v-bind:key="i">
-                    <li >{{i}}</li>
+                  <ul v-for="i in titleList" v-bind:key="i" class="example__ul">
+                    <li class="example__li">{{i}}</li>
                   </ul>
                 </div>
                 
@@ -41,7 +43,7 @@
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
                           <div class="example">
-                            <ul v-for="i in linkList" v-bind:key="i">
+                            <ul v-for="i in titleList" v-bind:key="i">
                               <li >{{i}}</li>
                             </ul>
                           </div>
@@ -102,14 +104,18 @@ export default {
         return{
               username:'',
               bio:'',
-             message:'',
+             link:'',
+             title:'',
+             titleList:[],
              linkList:[],
 
         }
     },
     methods:{
       addData:function(){
-          this.linkList.push(this.message)
+          this.linkList.push(this.link),
+          this.titleList.push(this.title)
+          
       },
     }
 
@@ -368,6 +374,20 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
     opacity: 1;
   }
 }
-
-
+.example__ul{
+  width: 100%;
+  max-width: 700px;
+}
+.example__li{
+  width: 100%;
+  font-size: large;
+  font-weight: 600;
+  border: 1px solid black;
+  padding: 8px;
+}
+.example__li:hover{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
 </style>
