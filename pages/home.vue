@@ -27,6 +27,7 @@
                    <button type="submit" class="login__submit">Add Link</button>
                 </form>
                 <div class="example">
+                
                  
                   <table class="table">
                         <thead>
@@ -39,18 +40,24 @@
                             
                           </tr>
                         </thead>
+                        <!-- <draggable v-model="linkList">
+                        <transition-group> -->
                         <tbody v-for="i in linkList" v-bind:key="i">
-                          <tr >
+                          <tr id="sort_me">
                             
                             <td>{{i.title}}</td>
                             <td>{{i.link}}</td>
-                            <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
-                            <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                            <td @click.prevent="edit(i)"><i class="fa fa-pencil" aria-hidden="true" ></i></td>
+                            <td @click.prevent="remove(i)"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
                             
                           </tr>
                          
                         </tbody>
+                        <!-- </transition-group>
+                         </draggable> -->
                       </table>
+                 
+               
                 </div>
                 
               </div>
@@ -96,7 +103,8 @@ import $ from 'jquery'
 import Sidebar from '../components/Sidebar'
 export default {
   components:{
-    Sidebar
+    Sidebar,
+
   },
   head(){
     return {
@@ -159,18 +167,32 @@ export default {
           this.backgroundColor='contentRed';
           console.log('====================================');
       },
+      edit:function(e){
+        var txt;
+          var r = confirm("You are about to Edit a Link");
+          if (r == true) {
+            this.title=e.title;
+            this.link=e.link;
+            const index = this.linkList.indexOf(e);
+              if (index > -1) {
+                this.linkList.splice(index, 1);
+              }
+          } else {
+            
+          }
+               
+        
+      },
+      remove:function(e){
+
+        const index = this.linkList.indexOf(e);
+        if (index > -1) {
+          this.linkList.splice(index, 1);
+        }
+      }
       
     },
-    computed:{
-      classObject:function(){
-          return {
-            color: 'red',
-          }
-      }
-    }
-
-
-  
+     
 }
 </script>
 
