@@ -20,18 +20,12 @@
      <div id='wrap'>
       <div class='field'></div>
       <form class='signup' @submit.prevent="subscribe">
-        <input class='email' placeholder='email' type='email'>
-        <div class='btnwrap'>
-          <div class='spark'></div>
-          <div class='spark'></div>
-          <div class='spark'></div>
-          <div class='spark'></div>
-          <div class='spark'></div>
-          <div class='spark'></div>
-          <b>Subscribe</b>
-          <div class='blob'></div>
-          <input type='submit' value='Subscribe'>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
         </div>
+      </div>
       </form>
     </div>
 

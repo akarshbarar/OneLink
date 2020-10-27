@@ -6,7 +6,7 @@
           <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
               <div class="sidebar-brand">
-                <a href="#">pro sidebar</a>
+                <a href="#">OneLink</a>
                 <div id="close-sidebar">
                  <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
@@ -70,130 +70,54 @@
                   <li class="sidebar-dropdown">
                     <a href="#">
                       <i class="fa fa-shopping-cart"></i>
-                      <span>E-commerce</span>
-                      <span class="badge badge-pill badge-danger">3</span>
+                      <span>Support</span>
+                      
                     </a>
                     <div class="sidebar-submenu">
                       <ul>
                         <li>
-                          <a href="#">Products
-
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">Orders</a>
-                        </li>
-                        <li>
-                          <a href="#">Credit cart</a>
+                          <nuxt-link to="support">Support Me Button
+                          </nuxt-link>
                         </li>
                       </ul>
                     </div>
                   </li>
                   <li class="sidebar-dropdown">
-                    <a href="#">
+                    <nuxt-link to="component">
                       <i class="fa fa-diamond" aria-hidden="true"></i>
                       <span>Components</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                      <ul>
-                        <li>
-                          <a href="#">General</a>
-                        </li>
-                        <li>
-                          <a href="#">Panels</a>
-                        </li>
-                        <li>
-                          <a href="#">Tables</a>
-                        </li>
-                        <li>
-                          <a href="#">Icons</a>
-                        </li>
-                        <li>
-                          <a href="#">Forms</a>
-                        </li>
-                      </ul>
-                    </div>
+                    </nuxt-link>
+               
                   </li>
                   <li class="sidebar-dropdown">
                     <nuxt-link to="analytics">
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
                       <span>Analytics</span>
                     </nuxt-link>
-                    <div class="sidebar-submenu">
-                      <ul>
-                        <li>
-                          <nuxt-link to="analytics">My Analytics</nuxt-link>
-                        </li>
-                        <li>
-                          <a href="#">Line chart</a>
-                        </li>
-                        <li>
-                          <a href="#">Bar chart</a>
-                        </li>
-                        <li>
-                          <a href="#">Histogram</a>
-                        </li>
-                      </ul>
-                    </div>
+              
                   </li>
-                  <li class="sidebar-dropdown">
-                    <a href="#">
-                      <i class="fa fa-globe" aria-hidden="true"></i>
-                      <span>Maps</span>
-                    </a>
-                    <div class="sidebar-submenu">
-                      <ul>
-                        <li>
-                          <a href="#">Google maps</a>
-                        </li>
-                        <li>
-                          <a href="#">Open street map</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="header-menu">
-                    <span>Extra</span>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-book" aria-hidden="true"></i>
-                      <span>Documentation</span>
-                      <span class="badge badge-pill badge-primary">Beta</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-                      <span>Calendar</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-folder"></i>
-                      <span>Examples</span>
-                    </a>
-                  </li>
+              
                 </ul>
               </div>
               <!-- sidebar-menu  -->
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
-              <a href="#">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span>
-              </a>
-              <a href="#">
+              <!-- <a href="#">
+                
+                <span class="badge badge-pill badge-warning notification">LogOut</span>
+              </a> -->
+              <!-- <a href="#">
                 <i class="fa fa-envelope"></i>
                 <span class="badge badge-pill badge-success notification">7</span>
               </a>
               <a href="#">
                 <i class="fa fa-cog"></i>
                 <span class="badge-sonar"></span>
-              </a>
+              </a> -->
               <nuxt-link to="/">
-                <i class="fa fa-power-off"></i>
+                 <span >Log-Out</span>
+                 <i class="fa fa-power-off"></i>
               </nuxt-link>
             </div>
           </nav>
@@ -569,6 +493,7 @@ body {
   width: 100%;
   bottom: 0;
   display: flex;
+  flex-direction: row;
 }
 
 .sidebar-footer > a {

@@ -62,6 +62,7 @@
                 
               </div>
               <div class="home__pageContentRight">
+                <button  type="button" class="btn btn-dark preview" @click.prevent="preview">Preview</button>
                 <div class="simulator">
                     <div class="smartphone">
                       <div class="content" v-bind:class="backgroundColor">
@@ -189,6 +190,9 @@ export default {
         if (index > -1) {
           this.linkList.splice(index, 1);
         }
+      },
+      preview:function(){
+        this.$router.push({ path: '/preview' })
       }
       
     },
@@ -209,6 +213,8 @@ export default {
   width: 360px;
   height: 640px;
   margin: auto;
+ 
+  margin-top: 5%;
   border: 16px black solid;
   border-top-width: 60px;
   border-bottom-width: 60px;
@@ -304,9 +310,14 @@ export default {
   margin-top: 10px;
 }
 .home__pageContentRight{
+
   flex: 2;
 }
 
+.preview{
+ margin-left: 25%;
+ right: 0;
+}
 .login__submit {
   position: relative;
   width: 100%;
