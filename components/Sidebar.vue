@@ -6,7 +6,7 @@
           <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
               <div class="sidebar-brand">
-                <a href="#">OneLink</a>
+                <a >OneLink</a>
                 <div id="close-sidebar">
                  <i class="fa fa-times" aria-hidden="true"></i>
                 </div>

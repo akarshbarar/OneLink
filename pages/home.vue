@@ -9,9 +9,9 @@
             <div class="home__pageContent">
               <div class="home__pageContentLeft">
                 <label>Enter UserName</label>
-                <input type="text"  v-model="username" placeholder="Enter UserName"/>
+                <input id="username" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
                 <label> Enter Bio</label>
-                <input type="text" v-model="bio" placeholder="Enter Bio"/>
+                <input id="bio" type="text" v-model="bio" placeholder="Enter Bio"/>
                 <hr/>
                 <h3>Add Links</h3>
                 		
@@ -40,9 +40,9 @@
                             
                           </tr>
                         </thead>
-                        <!-- <draggable v-model="linkList">
+                        <!-- <draggable v-model="linklist">
                         <transition-group> -->
-                        <tbody v-for="i in linkList" v-bind:key="i">
+                        <tbody v-for="i in linklist" v-bind:key="i">
                           <tr id="sort_me">
                             
                             <td>{{i.title}}</td>
@@ -72,7 +72,7 @@
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
                           <div class="example">
-                            <ul v-for="i in linkList" v-bind:key="i" class="list-group">
+                            <ul v-for="i in linklist" v-bind:key="i" class="list-group">
                               <a v-bind:href="i.link" target="_blank" class="list-group-item border border-success list-group-item-action" >{{i.title}}</a>
                             </ul>
                           </div>
@@ -80,7 +80,7 @@
                       </div>
                     </div>
                 </div>
-<button type="button" class="btn btn-success">Save</button>
+<button type="button" class="btn btn-success" @click.prevent="save">Save</button>
 
 <button 
    type="button" 
@@ -102,6 +102,8 @@
 <script>
 import $ from 'jquery'
 import Sidebar from '../components/Sidebar'
+import { mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   components:{
     Sidebar,
@@ -141,26 +143,35 @@ export default {
 
    data(){
         return{
-              username:'',
-              bio:'',
+             username:'',
+             bio:'',
              link:'',
              title:'',
              titleList:[],
-             linkList:[],
+             linklist:[],
              color:'white',
-             backgroundColor:"content"
-
+             backgroundColor:"content",
+             disabled:false
+            
         }
     },
     methods:{
       addData:function(){
-          this.linkList.push({
+          this.linklist.push({
             title:this.title,
             link:this.link
           }),
           this.link="",
           this.title=""
           
+      },
+      save:function(){
+         this.$store.commit('setUserName',this.username);
+        this.$store.commit('setBio',this.bio);
+        this.$store.commit('addLinks',this.linklist);
+        document.getElementById("username").disabled = true;
+
+
       },
       change:function(){
           console.log('====================================');
@@ -174,21 +185,17 @@ export default {
           if (r == true) {
             this.title=e.title;
             this.link=e.link;
-            const index = this.linkList.indexOf(e);
+            const index = this.linklist.indexOf(e);
               if (index > -1) {
-                this.linkList.splice(index, 1);
+                this.linklist.splice(index, 1);
               }
-          } else {
-            
           }
-               
-        
       },
       remove:function(e){
 
-        const index = this.linkList.indexOf(e);
+        const index = this.linklist.indexOf(e);
         if (index > -1) {
-          this.linkList.splice(index, 1);
+          this.linklist.splice(index, 1);
         }
       },
       preview:function(){
@@ -196,6 +203,37 @@ export default {
       }
       
     },
+    computed:{
+
+    ...mapState({
+          loggedIn:state=>state.loggedIn,
+          userName:state=>state.userName,
+          linkList:state=>state.linkList,
+          Bio:state=>state.Bio,
+          
+        }),
+      
+
+    },
+    created(){
+        if(!this.loggedIn){
+         this.$router.push({ path: '/login' })
+        }
+        else{
+          this.username=this.userName;
+          this.bio=this.Bio;
+          console.log(this.linkList)
+          this.linklist=[...this.linkList];
+          if(this.bio != null){
+                      this.disabled=true;
+
+          }
+
+        }
+    },
+    mounted(){
+
+    }
      
 }
 </script>
