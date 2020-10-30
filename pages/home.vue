@@ -294,11 +294,32 @@ export default {
   background: white;
   overflow: auto;
 }
-.smartphone .contentRed {
+/* .smartphone .contentRed {
   width: 100%;
   height:100%;
   background: red;
   overflow: auto;
+} */
+.smartphone .contentRed  {
+    /* background-image: url("https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724_960_720.jpg"); */
+        background-image: url("https://cdn.pixabay.com/photo/2012/12/27/19/41/halloween-72939_960_720.jpg");
+
+   
+	/* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+	/* background-size: 400% 400%; */
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -517,4 +538,6 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
   color: white;
   border: 1px solid white;
 }
+/* https://codepen.io/P1N2O/pen/pyBNzX */
+/*  */
 </style>
