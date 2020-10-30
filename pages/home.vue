@@ -12,6 +12,8 @@
                 <input id="username" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
                 <label> Enter Bio</label>
                 <input id="bio" type="text" v-model="bio" placeholder="Enter Bio"/>
+                <label> Upload Image</label>
+                <input id="bio" type="file" />
                 <hr/>
                 <h3>Add Links</h3>
                 		
@@ -244,7 +246,34 @@ export default {
  /* https://codepen.io/azouaoui-med/pen/wpBadb */
  /* https://fontawesome.com/v4.7.0/icon/calendar */
 
+.upload__dp{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.home{
+  overflow: auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.home::-webkit-scrollbar {
+    display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.home {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
  /* The device with borders */
 .smartphone {
   position: relative;
@@ -303,7 +332,7 @@ export default {
 .smartphone .contentRed  {
     /* background-image: url("https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724_960_720.jpg"); */
         background-image: url("https://cdn.pixabay.com/photo/2012/12/27/19/41/halloween-72939_960_720.jpg");
-
+        color: white;
    
 	/* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
 	/* background-size: 400% 400%; */
@@ -322,16 +351,7 @@ export default {
 	}
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
-    display: none;
-}
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
 .content{
     display: flex;
     flex-direction: column;

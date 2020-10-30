@@ -35,7 +35,7 @@
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
-            height="48"
+            height="auto"
             viewBox="-275 398.7 44.2 44.2"
           >
             <path
@@ -481,7 +481,7 @@ export default {
 }
 .index__leftGetStarted > button {
   float: left;
-  width: 20%;
+  width: fit-content%;
   padding: 10px;
   background: white;
   color: black;
@@ -500,7 +500,7 @@ export default {
 }
 .tagline {
   font-weight: 800;
-  font-size: 50px;
+  font-size: clamp(20px,5vw,50px);
   color: white;
   white-space: nowrap;
   overflow: hidden;
@@ -997,8 +997,8 @@ span {
   align-items: center;
 }
 .index__middleRowSVG > .svg{
-  height: 500px;
-  width: 500px;
+  height: auto;
+  width: 100%;
   object-fit: contain;
 }
 .index__middledata{
@@ -1006,9 +1006,60 @@ span {
   margin-left: 15%;
 }
 
+@media screen and (max-width: 1440px) {
+  svg{
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .index__image{
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .index__leftGetStartedInput{
+    display: none;
+  }
+  .cta{
+    display: none;
+  }
+  .index__leftGetStartedInput > input{
+    display: none;
+  }
+  .index__leftGetStartedInput > .onelink{
+    display: none;
+  }
+  .index__leftGetStarted > button {
 
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+}
+@media screen and (max-width: 700px) {
+  .index__middleRow{
+    display: flex;
+    flex-direction: column;
+  }
+  .index__image{
+    display: none;
+  }
+  .tagline{
+      font-weight: 800;
+      /* font-size: 20px; */
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(22, end) forwards, blink 1s infinite;
+  }
 
-
+}
+@media screen and (min-width: 700px) {
+  .dropdown{
+      display: none;
+  }
+}
 
 
 

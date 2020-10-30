@@ -49,7 +49,7 @@
                     <nuxt-link to="/home">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                       <span>Dashboard</span>
-                      <span class="badge badge-pill badge-warning">New</span>
+                      <!-- <span class="badge badge-pill badge-warning">New</span> -->
                     </nuxt-link>
                     <!-- <div class="sidebar-submenu">
                       <ul>
@@ -661,5 +661,9 @@ body {
 
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
+}
+
+@media screen and (max-width: 400px) {
+  
 }
 </style>
