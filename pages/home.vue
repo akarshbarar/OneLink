@@ -19,11 +19,11 @@
                 		
 
                 <form @submit.prevent="addData">
-  <input type="text" name="name" class="question" id="nme" v-model="title" required autocomplete="off" />
-  <label for="nme"><span>Enter Title</span></label>
+                    <input type="text" name="name" class="question" id="nme" v-model="title" required autocomplete="off" />
+                    <label for="nme"><span>Enter Title</span></label>
 
-  <input type="url" name="name" class="question" id="nme" v-model="link" required autocomplete="off" />
-  <label for="nme"><span>Enter your URL</span></label>
+                    <input type="url" name="name" class="question" id="nme" v-model="link" required autocomplete="off" />
+                <label for="nme"><span>Enter your URL</span></label>
 
 
                    <button type="submit" class="login__submit">Add Link</button>

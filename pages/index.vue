@@ -470,6 +470,7 @@ export default {
   /* Microsoft Edge */
   color: white;
 }
+
 .index__left > h1 {
   margin-top: 5%;
   color: white;
@@ -481,11 +482,11 @@ export default {
 }
 .index__leftGetStarted > button {
   float: left;
-  width: fit-content%;
-  padding: 10px;
+  width: fit-content;
+  padding: 20px;
   background: white;
   color: black;
-  font-size: 17px;
+  font-size: clamp(10px,15vw,17px);
   border: 1px solid grey;
   border-left: none;
   cursor: pointer;

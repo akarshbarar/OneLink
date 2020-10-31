@@ -1,20 +1,67 @@
 <template>
   <div class="support page-wrapper chiller-theme toggled">
      <Sidebar/>
-    <div class="component">
-      
-    </div>
+    <main class="page-content">
+      <center><h1>Pre-Built Component</h1></center>
+         <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add facebook
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add Instagram
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add Onlyfans
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add Spotify
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add Snapchat
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add TikTok
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add LinkedIn
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add YouTube
+         </button>
+          <button type="button" class="btn btn-danger"  @click="showModal" >
+          Add Discord
+         </button>
+    <modal
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
+    </main>
   </div>
 </template>
 
 <script>
 import Sidebar from '../components/Sidebar'
+  import modal from '../components/modal.vue';
 import $ from 'jquery'
 export default {
 components:{
     Sidebar,
+      modal,
 
   },
+  
+    data () {
+      return {
+        isModalVisible: false,
+      };
+    },
+    methods: {
+      showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }
+    },
    head(){
     return {
         title: "OneLink | Support",
@@ -52,5 +99,9 @@ components:{
 </script>
 
 <style>
+.support{
+  display: flex;
+  flex-direction: row;
+}
 
 </style>
