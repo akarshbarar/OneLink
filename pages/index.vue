@@ -281,7 +281,8 @@ export default {
         content:
           "OneLink socail media facebook instagram snapchat whatsapp website portfolio"
       }
-    ]
+    ],
+    
   },
   components: {
     Navbar,
@@ -295,7 +296,6 @@ export default {
 </script>
 
 <style>
-
 
 
 
@@ -423,7 +423,7 @@ export default {
   flex-direction: row;
   align-items: center;
   margin-left: 15%;
-  height: 100vh;
+  height: 100%;
 }
 .index__leftGetStarted {
   display: flex;

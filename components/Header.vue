@@ -1,9 +1,14 @@
 <template>
-  <div class="header">
+  <div class="headerr">
       <div class="header__data">
-          <h1><nuxt-link to="/">OneLink</nuxt-link></h1>
-          <div class="header__dataLinks">
-              <p>OneLink : <a href="#">https://www.OneLink.com/akarshbarar</a></p>
+            <div class="">
+                <nuxt-link to="/">OneLink</nuxt-link>
+              </div>
+            <div class="header__dataLinks">
+                <nuxt-link to="/">
+                 <span >Log-Out</span>
+                 <i class="fa fa-power-off"></i>
+              </nuxt-link>
              
           </div>
        
@@ -15,34 +20,33 @@
 import $ from 'jquery'
 export default {
 
-mounted(){
-     
-}
+ head(){
+   
+  },
 }
 </script>
 
 <style>
-.header{
-    background-color: gray;
-    
-text-decoration: none;
+.headerr{
+    background-color: #31353D;
+  
 }
 .header__data{
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-        align-content: center;
+    color: #818896;
 
-}
-.header__dataLinks{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
 }
+.header__data > .sidebar-brand{
+        color: #818896;
+
+}
+.header__data:hover{
+     color: #b8bfce;
+}
+/* */
 
 
 

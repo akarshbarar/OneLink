@@ -1,6 +1,7 @@
 <script>
   export default {
     name: 'modal',
+    props: ['title'],
     methods: {
       close() {
         this.$emit('close');
@@ -14,47 +15,34 @@
       <div class="modal"
         role="dialog"
         aria-labelledby="modalTitle"
-        aria-describedby="modalDescription"
-      >
-        <header
-          class="modal-header"
-          id="modalTitle"
-        >
-          <slot name="header">
-            This is the default tile!
+        aria-describedby="modalDescription" >
+        <form>
+             <header
+                class="modal-header"
+                id="modalTitle">
+                <slot name="header">
+                  Add {{title}} Link
+                  <button
+                    type="button"
+                    class="btn-close"
+                    @click="close"
+                    aria-label="Close modal" >
+                    x
+                  </button>
+                </slot>
+              </header>
+              <section
+                class="modal-body"
+                id="modalDescription">
+                <slot name="body">
+                  <input type="url" placeholder="Enter Link"/>
+                   <button class="btn btn-dark" type="submit">Add</button>
 
-            <button
-              type="button"
-              class="btn-close"
-              @click="close"
-              aria-label="Close modal"
-            >
-              x
-            </button>
-          </slot>
-        </header>
-        <section
-          class="modal-body"
-          id="modalDescription"
-        >
-          <slot name="body">
-            I'm the default body!
-          </slot>
-        </section>
-        <footer class="modal-footer">
-          <slot name="footer">
-            I'm the default footer!
-
-            <button
-              type="button"
-              class="btn-green"
-              @click="close"
-              aria-label="Close modal"
-            >
-              Close me!
-            </button>
-          </slot>
-        </footer>
+                </slot>
+              </section>
+        </form>
+     
+    
       </div>
     </div>
   </transition>
@@ -68,19 +56,19 @@
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
-    justify-content: center;
-    align-items: center;
+
   }
 
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
+    font-size: clamp(10px,5vw,20px);
     display: flex;
-    width: 25%;
+    width: 100vw;
     height: 25%;
-    margin-left: 40%;
     flex-direction: column;
+
   }
 
   .modal-header,

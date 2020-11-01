@@ -67,7 +67,7 @@
                       </ul>
                     </div> -->
                   </li>
-                  <li class="sidebar-dropdown">
+                  <!-- <li class="sidebar-dropdown">
                     <a href="#">
                       <i class="fa fa-shopping-cart"></i>
                       <span>Support</span>
@@ -81,14 +81,14 @@
                         </li>
                       </ul>
                     </div>
-                  </li>
-                  <li class="sidebar-dropdown">
+                  </li> -->
+                  <!-- <li class="sidebar-dropdown">
                     <nuxt-link to="component">
                       <i class="fa fa-diamond" aria-hidden="true"></i>
                       <span>Components</span>
                     </nuxt-link>
                
-                  </li>
+                  </li> -->
                   <li class="sidebar-dropdown">
                     <nuxt-link to="analytics">
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -115,10 +115,10 @@
                 <i class="fa fa-cog"></i>
                 <span class="badge-sonar"></span>
               </a> -->
-              <nuxt-link to="/">
+              <!-- <nuxt-link to="/">
                  <span >Log-Out</span>
                  <i class="fa fa-power-off"></i>
-              </nuxt-link>
+              </nuxt-link> -->
             </div>
           </nav>
   </div>
@@ -275,7 +275,7 @@ body {
 #show-sidebar {
   position: fixed;
   left: 0;
-  top: 10px;
+  top: 100px;
   border-radius: 0 4px 4px 0px;
   width: 35px;
   transition-delay: 0.3s;
@@ -550,7 +550,7 @@ body {
 }
 
 /*------scroll bar---------------------*/
-
+/* 
 ::-webkit-scrollbar {
   width: 5px;
   height: 7px;
@@ -583,7 +583,7 @@ body {
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
-}
+} */
 
 
 /*-----------------------------chiller-theme-------------------------------------------------*/

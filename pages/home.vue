@@ -2,10 +2,12 @@
   <div class="home">
 
       <div class="page-wrapper chiller-theme toggled">
+      
         <Sidebar/>
-
+  
           <!-- sidebar-wrapper  -->
           <main class="page-content">
+            <Header/>
             <div class="home__pageContent">
               <div class="home__pageContentLeft">
                 <label>Enter UserName</label>
@@ -28,6 +30,7 @@
 
                    <button type="submit" class="login__submit">Add Link</button>
                 </form>
+               
                 <div class="example">
                 
                  
@@ -64,7 +67,7 @@
                 
               </div>
               <div class="home__pageContentRight">
-                <button  type="button" class="btn btn-dark preview" @click.prevent="preview">Preview</button>
+                <button type="button" class="btn btn-success" @click.prevent="save">Save</button>
                 <div class="simulator">
                     <div class="smartphone">
                       <div class="content" v-bind:class="backgroundColor">
@@ -73,6 +76,10 @@
                           </div>
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
+                          <div class="button-bar">
+                            <i class="fa fa-phone"></i>
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                          </div>
                           <div class="example">
                             <ul v-for="i in linklist" v-bind:key="i" class="list-group">
                               <a v-bind:href="i.link" target="_blank" class="list-group-item border border-success list-group-item-action" >{{i.title}}</a>
@@ -82,18 +89,17 @@
                       </div>
                     </div>
                 </div>
-<button type="button" class="btn btn-success" @click.prevent="save">Save</button>
 
-<button 
-   type="button" 
-   class="btn btn-danger" 
-   v-on:click.prevent ="change">
-    change
-  </button>
+                <button 
+                  type="button" 
+                  class="btn btn-danger" 
+                  v-on:click.prevent ="change">
+                    change
+                  </button>
 
               </div>
             </div>
-
+            
           </main>
           <!-- page-content" -->
         </div>
@@ -104,11 +110,14 @@
 <script>
 import $ from 'jquery'
 import Sidebar from '../components/Sidebar'
+import Header from '../components/Header'
+
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
 export default {
   components:{
     Sidebar,
+    Header
 
   },
   head(){
@@ -241,38 +250,57 @@ export default {
 </script>
 
 <style>
+.button-bar {
+  display: flex;
+ 
+}
+@media screen and (min-width: 600px) {
+  .button-bar {
+    grid-gap: 40px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
 
 
  /* https://codepen.io/azouaoui-med/pen/wpBadb */
  /* https://fontawesome.com/v4.7.0/icon/calendar */
-
+.page-wrapper .page-content {
+  padding: 0;
+}
+.page-wrapper.toggled .page-content {
+    padding-left: 260px;
+}
 .upload__dp{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.home{
+/* .home{
   overflow: auto;
-}
+} */
 /* Hide scrollbar for Chrome, Safari and Opera */
-.home::-webkit-scrollbar {
+/* .home::-webkit-scrollbar {
     display: none;
-}
+} */
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .home {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  /* -ms-overflow-style: none;  */
+   /* IE and Edge */
+  /* scrollbar-width: none;  */
+   /* Firefox */
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
+/* .example::-webkit-scrollbar {
     display: none;
-}
+} */
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  /* -ms-overflow-style: none;   */
+  /* IE and Edge */
+  /* scrollbar-width: none;   */
+  /* Firefox */
 }
  /* The device with borders */
 .smartphone {
@@ -560,4 +588,17 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 }
 /* https://codepen.io/P1N2O/pen/pyBNzX */
 /*  */
+
+@media screen and (max-width: 1200px) {
+
+}
+@media screen and (max-width: 500px) {
+  .simulator{
+    display: none;
+  }
+
+  .home__pageContentRight > .btn-danger{
+    display: none;
+  }
+}
 </style>
