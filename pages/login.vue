@@ -9,11 +9,11 @@
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Email or Username</label>
-					<input id="user" type="text" class="input" placeholder="Enter Email or Username">
+					<input id="user" type="text" class="input" v-model="signin__email" placeholder="Enter Email or Username">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Enter Password">
+					<input id="pass" type="password" class="input" v-model="signin__password" data-type="password" placeholder="Enter Password">
 				</div>
 				<div class="group">
 					<input id="check" type="checkbox" class="check" checked>
@@ -29,21 +29,23 @@
 			</div>
 			<div class="sign-up-htm">
 				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" placeholder="Enter Username">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Enter Password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Confirm Username">
+					<label for="user" class="label">Full Name</label>
+					<input id="user" type="text" v-modal="signup__fullname" class="input" placeholder="Enter Full Name">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="email" class="input" placeholder="Enter Email">
+					<input id="pass" type="email" class="input" v-model="signup__email" placeholder="Enter Email">
 				</div>
+
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" v-model="signup__password" data-type="password" placeholder="Enter Password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" v-model="signup__corfirmPassword" data-type="password" placeholder="Confirm Username">
+				</div>
+				
 				<div class="group">
 					<input type="submit" class="button" value="Sign Up" @click.prevent="signup">
 				</div>
@@ -62,8 +64,20 @@
 <script>
 import $ from 'jquery'
 import Navbar from '../components/Navbar'
+import db from '../middleware/firebase'
 export default {
+data(){
+	return{
+		signin__email:'',
+		signin__password:'',
+		signup__fullname:'',
+		signup__email:'',
+		signup__password:'',
+		signup__confirmPassword:'',
 
+	}
+	
+},
 components:{
     Navbar
 },
@@ -87,7 +101,18 @@ components:{
 		},
 		methods:{
 			signin:function(){
-					        this.$router.push({ path: '/home' })
+					db.auth()
+					  .createUserWithEmailAndPassword(this.signin__email, this.signin__password)
+					  .then((e)=>{
+						  this.$router.push({ path: '/home' })
+					  })
+					  .catch(function(error) {
+						// Handle Errors here.
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						alert(errorMessage)
+						// ...
+						});
 			},
 			signup:function(){
 				        this.$router.push({ path: '/home' })
