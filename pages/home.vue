@@ -14,6 +14,10 @@
                 <input id="username" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
                 <label> Enter Bio</label>
                 <input id="bio" type="text" v-model="bio" placeholder="Enter Bio"/>
+                <label> Enter Text Number</label>
+                <input  type="number" v-model="smsnumber" placeholder="Enter SMS number"/>
+                <label> Enter Call Number</label>
+                <input  type="number" v-model="callnumber" placeholder="Enter Call Number"/>
                 <label> Upload Image</label>
                 <input id="bio" type="file" />
                 <hr/>
@@ -154,6 +158,8 @@ export default {
 
    data(){
         return{
+            smsnumber:0,
+            callnumber:0,
              username:'',
              bio:'',
              link:'',
@@ -180,8 +186,9 @@ export default {
          this.$store.commit('setUserName',this.username);
         this.$store.commit('setBio',this.bio);
         this.$store.commit('addLinks',this.linklist);
+        this.$store.commit('setSmsNumber',this.smsnumber);
+        this.$store.commit('setCallNumber',this.callnumber);
         document.getElementById("username").disabled = true;
-
 
       },
       change:function(){
@@ -221,7 +228,8 @@ export default {
           userName:state=>state.userName,
           linkList:state=>state.linkList,
           Bio:state=>state.Bio,
-          
+          smsNumber:state=>state.smsNumber,
+          callNumber:state=>state.callNumber
         }),
       
 
@@ -239,6 +247,9 @@ export default {
                       this.disabled=true;
 
           }
+          this.smsnumber=this.smsNumber;
+          this.callnumber=this.callNumber;
+          
 
         }
     },
@@ -275,31 +286,31 @@ export default {
   flex-direction: row;
   align-items: center;
 }
-/* .home{
+.home{
   overflow: auto;
-} */
+}
 /* Hide scrollbar for Chrome, Safari and Opera */
-/* .home::-webkit-scrollbar {
+.home::-webkit-scrollbar {
     display: none;
-} */
+}
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .home {
-  /* -ms-overflow-style: none;  */
+  -ms-overflow-style: none; 
    /* IE and Edge */
-  /* scrollbar-width: none;  */
+  scrollbar-width: none; 
    /* Firefox */
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
-/* .example::-webkit-scrollbar {
+.example::-webkit-scrollbar {
     display: none;
-} */
+}
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .example {
-  /* -ms-overflow-style: none;   */
+  -ms-overflow-style: none;  
   /* IE and Edge */
-  /* scrollbar-width: none;   */
+  scrollbar-width: none;  
   /* Firefox */
 }
  /* The device with borders */

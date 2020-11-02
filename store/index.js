@@ -6,6 +6,8 @@ export const state = () => ({
     Name:null,
     Bio:null,
     userName:null,
+    smsNumber:0,
+    callNumber:0,
     linkList:[],
   });
   
@@ -23,6 +25,12 @@ export const state = () => ({
       },
       setBio(state,data){
         state.Bio=data
+      },
+      setSmsNumber(state,data){
+        state.smsNumber=data
+      },
+      setCallNumber(state,data){
+        state.callNumber=data
       },
       setUserName(state,data){
           state.userName=data
