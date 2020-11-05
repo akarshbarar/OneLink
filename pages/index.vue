@@ -291,7 +291,14 @@ export default {
   methods: {},
   mounted() {
 
-  }
+  },
+	asyncData () {
+			return new Promise((resolve) => {
+			setTimeout(function () {
+				resolve({})
+			}, 1000)
+			})
+		}
 };
 </script>
 

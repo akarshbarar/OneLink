@@ -5,10 +5,10 @@
                 <nuxt-link to="/">OneLink</nuxt-link>
               </div>
             <div class="header__dataLinks">
-                <nuxt-link to="/">
+                <div @click="logout">
                  <span >Log-Out</span>
                  <i class="fa fa-power-off"></i>
-              </nuxt-link>
+              </div>
              
           </div>
        
@@ -18,11 +18,29 @@
 
 <script>
 import $ from 'jquery'
+import db from '../middleware/firebase'
 export default {
 
  head(){
    
   },
+  methods:{
+    logout:function(){
+       this.$router.push({ path: '/' })
+       this.$store.commit('isLoggedIn',false);
+
+      db.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log("Logging out");
+        
+       
+
+      }).catch(function(error) {
+        // An error happened.
+      });
+
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 export default {
-  loading:true,
+  loading:'~/components/loading.vue',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'OneLink | The Only link for all your sites.',
