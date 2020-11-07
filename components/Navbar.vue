@@ -94,8 +94,10 @@ export default {
 }
 header{
     background: black;
-    display: grid;
-    grid-template-columns: repeat(2,auto);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* grid-template-columns: repeat(2,auto); */
     padding: 5px;
     
 }

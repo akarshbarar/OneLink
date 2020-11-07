@@ -37,7 +37,7 @@
 					<div class="sign-up-htm">
 						<div class="group">
 							<label for="user" class="label">Full Name</label>
-							<input id="user" type="text" v-modal="signup__fullname" class="input" placeholder="Enter Full Name">
+							<input id="user" type="text" v-model="signup__fullname" class="input" placeholder="Enter Full Name">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">Email Address</label>
@@ -58,7 +58,7 @@
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
-							<label for="tab-1">Already Member?</a></label>
+							<label for="tab-1">Already Member?</label>
 						</div>
 					</div>
 				</div>
@@ -130,6 +130,9 @@ components:{
 						});
 			},
 			signup:function(){
+								    this.loading = true ;//the loading begin
+
+
 					db.auth()
 					  .createUserWithEmailAndPassword(this.signup__email, this.signup__password)
 					  .then((e)=>{
@@ -145,6 +148,9 @@ components:{
 									}
 									else{
 										console.log("DATA SAVED")
+
+										this.$store.commit('setName',this.signup__fullname);
+
 										this.$store.commit('isLoggedIn',true);
 						  				this.$router.push({ path: '/home' })
 										

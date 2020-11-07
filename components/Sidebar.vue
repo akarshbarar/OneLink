@@ -16,8 +16,7 @@
                   <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
                 </div>
                 <div class="user-info">
-                  <span class="user-name">Jhon
-                    <strong>Smith</strong>
+                  <span class="user-name">{{Name}}
                   </span>
                   <span class="user-role">Administrator</span>
                   <span class="user-status">
@@ -126,8 +125,21 @@
 
 <script>
 import $ from 'jquery';
-export default {
+import { mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
+export default {
+  created(){
+    console.log('====================================');
+    console.log(this.Name);
+    console.log('====================================');
+  },
+  computed:{
+    ...mapState({
+      Name:state=>state.Name
+    }),
+  
+  },
  head(){
     return {
           link: [

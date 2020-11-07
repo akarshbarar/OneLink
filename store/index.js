@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 
 export const state = () => ({
     loggedIn:true,
-    Name:null,
-    Bio:null,
-    userName:null,
+    Name:'',
+    Bio:'',
+    userName:'',
     smsNumber:0,
     callNumber:0,
     linkList:[],

@@ -255,7 +255,7 @@
 
     <div class="index__CTA">
       <h1>Create your OneLink Now</h1>
-      <button>Get Started</button>
+      <nuxt-link to="/login" class="button">Get Started</nuxt-link>
     </div>
     <Footer />
   </div>
@@ -557,7 +557,7 @@ span {
   text-align: center;
   padding: 5%;
 }
-.index__CTA > button {
+.index__CTA > .button {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
