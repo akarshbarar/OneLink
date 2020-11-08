@@ -130,7 +130,7 @@ components:{
 						});
 			},
 			signup:function(){
-								    this.loading = true ;//the loading begin
+					 this.loading = true ;//the loading begin
 
 
 					db.auth()
@@ -150,6 +150,7 @@ components:{
 										console.log("DATA SAVED")
 
 										this.$store.commit('setName',this.signup__fullname);
+										this.$store.commit('setUID',e.user.uid);
 
 										this.$store.commit('isLoggedIn',true);
 						  				this.$router.push({ path: '/home' })

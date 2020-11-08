@@ -9,6 +9,7 @@ export const state = () => ({
     smsNumber:0,
     callNumber:0,
     linkList:[],
+    UID:''
   });
   
   
@@ -34,5 +35,8 @@ export const state = () => ({
       },
       setUserName(state,data){
           state.userName=data
+      },
+      setUID(state,data){
+        state.UID,data
       }
   }

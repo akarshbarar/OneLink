@@ -127,18 +127,27 @@
 import $ from 'jquery';
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
+import db from '../middleware/firebase'
 
 export default {
   created(){
-    console.log('====================================');
-    console.log(this.Name);
-    console.log('====================================');
+    var userId = db.auth().currentUser.uid;
+    console.log(userId)
+        db.database().ref("Users").child(userId).on('value',(snap)=>{
+            let details = snap.val();
+            this.Name=details.name;
+        }) 
+
   },
   computed:{
     ...mapState({
       Name:state=>state.Name
     }),
-  
+  },
+  data(){
+      return {
+        Name:''
+      }
   },
  head(){
     return {

@@ -16,10 +16,14 @@
                 <input id="bio" type="text" v-model="bio" placeholder="Enter Bio"/>
                 <label> Enter Text Number</label>
                 <input  type="number" v-model="smsnumber" placeholder="Enter SMS number"/>
+                
+
                 <label> Enter Call Number</label>
                 <input  type="number" v-model="callnumber" placeholder="Enter Call Number"/>
+
+            
                 <label> Upload Image</label>
-                <input id="bio" type="file" />
+                <input  accept="image/*" @change="uploadImage($event)" type="file" />
                 <hr/>
                 <h3>Add Links</h3>
                 		
@@ -81,8 +85,8 @@
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
                           <div class="button-bar">
-                            <i class="fa fa-phone"></i>
-                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            <i v-if="callchecked" class="fa fa-phone"></i>
+                            <i v-if="smschecked" class="fa fa-comment" aria-hidden="true"></i>
                           </div>
                           <div class="example">
                             <ul v-for="i in linklist" v-bind:key="i" class="list-group">
@@ -93,14 +97,23 @@
                       </div>
                     </div>
                 </div>
-
+            <div class="customization">
                 <button 
                   type="button" 
                   class="btn btn-danger" 
                   v-on:click.prevent ="change">
                     change
                   </button>
+                  <div class="shows">
+                          <label for="checkbox">Show SMS number</label>
+                    <input type="checkbox" id="checkbox" v-model="smschecked">
 
+                    <label for="checkbox">Show Call number</label>
+                    <input type="checkbox" id="checkbox" v-model="callchecked">
+                  </div>
+             
+            </div>
+              
               </div>
             </div>
             
@@ -158,6 +171,8 @@ export default {
 
    data(){
         return{
+          callchecked:true,
+          smschecked:true,
             smsnumber:0,
             callnumber:0,
              username:'',
@@ -188,7 +203,7 @@ export default {
         this.$store.commit('addLinks',this.linklist);
         this.$store.commit('setSmsNumber',this.smsnumber);
         this.$store.commit('setCallNumber',this.callnumber);
-        document.getElementById("username").disabled = true;
+         document.getElementById("username").disabled = true;
 
       },
       change:function(){
@@ -243,8 +258,8 @@ export default {
           this.bio=this.Bio;
           console.log(this.linkList)
           this.linklist=[...this.linkList];
-          if(this.bio != null){
-                      this.disabled=true;
+          if(this.userName != ''){
+             this.disabled=true;
 
           }
           this.smsnumber=this.smsNumber;
