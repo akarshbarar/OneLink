@@ -9,7 +9,9 @@ export const state = () => ({
     smsNumber:0,
     callNumber:0,
     linkList:[],
-    UID:''
+    UID:'',
+    displayPicture:'',
+    backgroundImage:''
   });
   
   
@@ -38,5 +40,11 @@ export const state = () => ({
       },
       setUID(state,data){
         state.UID,data
+      },
+      setDisplayPicture(state,data){
+        state.displayPicture=data
+      },
+      setBackgroundImage(state,data){
+        state.backgroundImage=data
       }
   }

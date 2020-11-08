@@ -78,9 +78,9 @@
                 <button type="button" class="btn btn-success" @click.prevent="save">Save</button>
                 <div class="simulator">
                     <div class="smartphone">
-                      <div class="content" v-bind:class="backgroundColor">
+                      <div class="content" v-bind:class="backgroundColor" v-bind:style="{ 'background-image': 'url(' + backgroundImage + ')' ,'background-size': '100% 100%','background-repeat': 'no-repeat' }">
                            <div class="user-pic">
-                            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                            <img class="img-responsive img-rounded" :src="dp_image" alt="User picture">
                           </div>
                           <p>@{{username}}</p>
                           <p>{{bio}}</p>
@@ -105,11 +105,21 @@
                     change
                   </button>
                   <div class="shows">
-                          <label for="checkbox">Show SMS number</label>
-                    <input type="checkbox" id="checkbox" v-model="smschecked">
+                    <div class="show__sms">
+                        <label for="checkbox">Show SMS number</label>
+                        <input type="checkbox" id="checkbox" v-model="smschecked">
 
-                    <label for="checkbox">Show Call number</label>
-                    <input type="checkbox" id="checkbox" v-model="callchecked">
+                    </div>
+                    <div class="show__sms">
+                       <label for="checkbox">Show Call number</label>
+                       <input type="checkbox" id="checkbox" v-model="callchecked">
+                    </div>
+                     <div class="show__background">
+                       <label> Upload Background Image</label>
+                       <input  accept="image/*" @change="uploadBackgroundImage($event)" type="file" />
+                    </div>
+                  
+                   
                   </div>
              
             </div>
@@ -171,6 +181,8 @@ export default {
 
    data(){
         return{
+          dp_image:"https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg",
+          backgroundImage:"",
           callchecked:true,
           smschecked:true,
             smsnumber:0,
@@ -188,6 +200,31 @@ export default {
         }
     },
     methods:{
+
+  uploadImage(e) {
+
+                    const image = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.readAsDataURL(image);
+                    reader.onload = e =>{
+                        this.dp_image = e.target.result;
+                        this.$store.commit('setDisplayPicture',e.target.result);
+
+                    };
+                
+  },
+  uploadBackgroundImage(e) {
+
+                    const image = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.readAsDataURL(image);
+                    reader.onload = e =>{
+                        this.backgroundImage ="'"+ e.target.result+"'";
+                        this.$store.commit('setBackgroundImage',e.target.result);
+
+                    };
+                
+  },
       addData:function(){
           this.linklist.push({
             title:this.title,
@@ -198,13 +235,20 @@ export default {
           
       },
       save:function(){
-         this.$store.commit('setUserName',this.username);
-        this.$store.commit('setBio',this.bio);
-        this.$store.commit('addLinks',this.linklist);
-        this.$store.commit('setSmsNumber',this.smsnumber);
-        this.$store.commit('setCallNumber',this.callnumber);
-         document.getElementById("username").disabled = true;
+        var txt;
+        var r = confirm("You are about to set UserName Once set will not be changed. Do you agree");
+        if (r == true) {
+            this.$store.commit('setUserName',this.username);
+          this.$store.commit('setBio',this.bio);
+          this.$store.commit('addLinks',this.linklist);
+          this.$store.commit('setSmsNumber',this.smsnumber);
+          this.$store.commit('setCallNumber',this.callnumber);
+          document.getElementById("username").disabled = true;
 
+        } else {
+          alert("Process Aborted..")
+        }
+       
       },
       change:function(){
           console.log('====================================');
@@ -276,6 +320,17 @@ export default {
 </script>
 
 <style>
+.customization{
+  margin-bottom: 10px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shows{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .button-bar {
   display: flex;
  

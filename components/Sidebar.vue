@@ -13,7 +13,7 @@
               </div>
               <div class="sidebar-header">
                 <div class="user-pic">
-                  <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                  <img class="img-responsive img-rounded" :src="displayPicture" alt="User picture">
                 </div>
                 <div class="user-info">
                   <span class="user-name">{{Name}}
@@ -141,12 +141,14 @@ export default {
   },
   computed:{
     ...mapState({
-      Name:state=>state.Name
+      Name:state=>state.Name,
+      displayPicture:state=>state.displayPicture
     }),
   },
   data(){
       return {
-        Name:''
+        Name:'',
+        // displayPicture:'https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg'
       }
   },
  head(){
