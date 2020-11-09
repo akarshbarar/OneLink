@@ -6,7 +6,7 @@
           <ul>
               <li><nuxt-link to="/">Home</nuxt-link></li>
               <li><nuxt-link to="about">About us</nuxt-link></li>
-              <li><nuxt-link to="blogs"> Our Blogs</nuxt-link></li>
+              <li><nuxt-link to="blog"> Our Blogs</nuxt-link></li>
               <li><nuxt-link to="contact">Contact Us</nuxt-link></li>
               <li><nuxt-link to="help">Help</nuxt-link></li>
               <li><nuxt-link to="login" >Login</nuxt-link></li>

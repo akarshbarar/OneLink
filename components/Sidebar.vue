@@ -131,12 +131,22 @@ import db from '../middleware/firebase'
 
 export default {
   created(){
-    var userId = db.auth().currentUser.uid;
-    console.log(userId)
-        db.database().ref("Users").child(userId).on('value',(snap)=>{
+    	db.auth().onAuthStateChanged((user) => {
+		if (user) {
+			// User logged in already or has just logged in.
+		   var userId = user.uid;
+        
+        db.database().ref("Users").child(user.uid).on('value',(snap)=>{
             let details = snap.val();
-            this.Name=details.name;
+            this.name=details.name;
         }) 
+
+		
+		} else {
+			// User not logged in or has just logged out.
+		}
+		})
+ 
 
   },
   computed:{
@@ -147,7 +157,7 @@ export default {
   },
   data(){
       return {
-        Name:'',
+        name:'',
         // displayPicture:'https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg'
       }
   },

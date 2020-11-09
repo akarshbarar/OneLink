@@ -1,214 +1,400 @@
 <template>
-  <div class="about" >
+  <div class="about">
+     <Navbar/>
+          
 
-<!-- Author: Ali Soueidan-->
-<!-- Author URI: https//: www.alisoueidan.com-->
-<div id="container"> 
-  <h2>Achievement-Box</h2>
-  <div class="content">
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-sign-in-alt"></i></div>
-        <div class="progress login"></div>
-        <p> <span class="login-counter">0</span>/5 login
-        </p>
-      </div>
-    </div>
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-heart"></i></div>
-        <div class="progress love"></div>
-        <p> <span class="love-counter">0</span>/5 love
-        </p>
-      </div>
-    </div>
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-users"></i></div>
-        <div class="progress community"></div>
-        <p> <span class="community-counter">0</span>/5 community
-        </p>
-      </div>
-    </div>
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-camera"></i></div>
-        <div class="progress photography"></div>
-        <p> <span class="photography-counter">0</span>/5 photography
-        </p>
-      </div>
-    </div>
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-comment-alt"></i></div>
-        <div class="progress communication"></div>
-        <p> <span class="communication-counter">0</span>/5 communication
-        </p>
-      </div>
-    </div>
-    <div class="achievement">
-      <div class="bar">
-        <div class="img-box"><i class="fas fa-phone"></i></div>
-        <div class="progress call"></div>
-        <p> <span class="call-counter">0</span>/5 call
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="button-bar"> 
-  <button name="login" title="click to fill item-achievement bar"><i class="fa fa-sign-in-alt"></i></button>
-  <button name="love" title="click to fill item-achievement bar"><i class="fa fa-heart"></i></button>
-  <button name="community" title="click to fill item-achievement bar"><i class="fa fa-users"></i></button>
-  <button name="photography" title="click to fill item-achievement bar"><i class="fa fa-camera"></i></button>
-  <button name="communication" title="click to fill item-achievement bar"><i class="fa fa-comment" aria-hidden="true"></i></button>
-  <button name="call" title="click to fill item-achievement bar"><i class="fa fa-phone"></i></button>
-</div><a class="reference" href="http://bit.ly/2JPuBjx" target="_blank">🔗 alisoueidan.com</a>
+    
+
+    <div id="about-main">
+        <div class="jumbotron">
+            <div class="jumbotron-inner">
+                <div class="top-box">
+                    <div class="content-box">
+                        <h1>
+                            About OneLink
+                        </h1>
+                        <p>
+                            APIMatic is a developer experience platform for web APIs.  <br /> Our mission is to make developers productive through automatic code generation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="img-layer-container">
+                <div class="team-image" id="team-image">
+                    <img src="https://apimatic.io/img/theme/aboutUs/images-1.png" />
+                </div>
+
+                <div class="circles-container">
+                    <div class="img-1">
+                        <img src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />                        
+                    </div>
+                    <div class="img-2">
+                        <img src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />                        
+                    </div>                    
+                </div>           
+            </div>
+        </div>
+        <div class="story-container">
+            <div class="need-for-dx-container">
+                <h3 class="text-center">
+                    Need for DX
+                </h3>
+                <p>
+                    Application Programming Interfaces (APIs) have taken the world by storm and are now the de facto standard of software communication. Almost every software product nowadays consumes APIs. The business model of numerous companies around the world relies upon the consumption of their APIs. API providers, therefore, strive to increase API adoption rates by spending millions of dollars every year to improve developer experience. This is usually done by providing Software Development Kits (SDKs) and API documentation to developer consuming their API(s). Developing SDKs and writing documentation, however, are arduous, monotonous and error-prone tasks. It is a slow process and costs a lot of time and money.
+                </p>
+                <div class="img-container">
+                    <img src="https://apimatic.io/img/theme/aboutUs/dxFlow.svg" alt="apimatic developer experience process" class="img-responsive"/>
+                </div>
+            </div>
+            <div class="container-divider"></div>
+            <div class="our-tech-container">
+                <h3 class="text-center">
+                    Our Technology
+                </h3>
+                <p>
+                    Our code generation engine enables API providers to generate SDKs for their APIs within minutes and at a fraction of the cost. We provide tools like our API editor and API transformer to further aid API providers in minimizing the time required to ship excellent quality SDKs to the developers using their APIs. Our code generation engine is also capable of generating succinct and error-free documentation for APIs and SDKs, both. The documentation for the SDKs includes dynamic screenshots detailing usage instructions tailored to the provider's specific API and also code snippets showing example usage. As the cherry on the cake, we provide beautifully designed DX portals to encapsulate this documentation.
+                </p>
+                <div class="img-container">
+                    <img src="https://apimatic.io/img/theme/cgaasIcons/cgaasProcess.gif" alt="apimatic code generation engine" class="img-responsive"/>
+                </div>
+            </div>
+            <div class="container-divider"></div>
+            <div class="origin-story-container">
+                <h3 class="text-center">
+                    Origin Story
+                </h3>
+                <p>
+                    While doing research work for their PhDs from the University of Auckland in 2014, our founders came across one of the API industry's pain points: SDKs. They realized that API providers who spent hundreds of thousands of dollars every year on improving developer experience, by providing SDKs and user-friendly documentation were able to reach a wider developer audience for their APIs compared to API providers who weren't able to do so.
+                </p>
+                <p>
+                    It was so clear that even though writing SDKs and documentation was a difficult and expensive task, it followed repeatable patterns which could be defined as logic blocks in a code generation engine. So, as a research project, they started working on a code generation engine which dynamically generated SDKs using API description as input.
+                </p>
+                <p>
+                    After a rigorous journey, this research project was selected as a candidate for commercialization by Return on Science (a NZ national research commercialization program focused on bringing new academic research to market) and the concept was transformed into a product i.e. APIMatic.
+                </p>
+            </div>
+            <div class="container-divider"></div>
+            <div class="today-container">
+                <h3 class="text-center">
+                    Flash Forward Today
+                </h3>
+                <p>
+                    APIMatic has come a long way since its inception 3 years ago. Having started with only generating SDKs, APIMatic now provides solutions in other areas of developer experience as well. Presently, APIMatic is used by numerous organizations around the world to:
+                </p>
+                <ul>
+                    <li>Create and store definitions of their APIs</li>
+                    <li>Generate SDKs for their APIs for 10 platforms</li>
+                    <li>Keep these SDKs in sync with API updates</li>
+                    <li>Convert API descriptions into multiple formats (Swagger, API Blueprint, RAML etc.)</li>
+                    <li>Generate beautiful documentation for their APIs and SDKs</li>
+                    <li>Generate complete Developer Experience API Portals</li>
+                </ul>
+            </div>
+            <div class="container-divider"></div>
+        </div>
+    </div>  
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
+import Navbar from '../components/Navbar'
+import Loading from '../components/loading'
 export default {
+components:{
+	Navbar,
+	Loading
+},
+  head: {
+    title: "OneLink | About us",
+    meta: [
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "description",
+        content: "OneLink is a site for all your personal links at one place."
+      },
+      {
+        name: "keyword",
+        content:
+          "OneLink socail media facebook instagram snapchat whatsapp website portfolio Login"
+      }
+    ]
+  },
+	mounted(){
+          'use strict';
 
+      $(document).ready(function () {
+          $(window).bind('scroll', function (e) {
+              parallaxScroll();
+          });
+      });
+
+      function parallaxScroll() {
+          const scrolled = $(window).scrollTop();
+          $('#team-image').css('top', (0 - (scrolled * .20)) + 'px');
+          $('.img-1').css('top', (0 - (scrolled * .35)) + 'px');
+          $('.img-2').css('top', (0 - (scrolled * .05)) + 'px');
+      }
+    },
+    // asyncData () {
+		// 	return new Promise((resolve) => {
+		// 	setTimeout(function () {
+		// 		resolve({})
+		// 	}, 1000)
+		// 	})
+		// }
 }
 </script>
 
 <style>
-
-
-@keyframes fill {
-  0% {
-    border-radius: 0 20px 20px 0;
-  }
-  50% {
-    border-radius: 0 15px 15px 0;
-  }
-  100% {
-    border-radius: 0 20px 20px 0;
-  }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+.product-navbar {
+  height: 40px;
+  width: 100%;
+  background: black;
+  border-bottom: 1px solid #090b0f;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
 }
-.about {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.product-navbar .product-navbar-centered {
+  max-width: 90vw;
+  height: 20px;
+  margin: 0 5vw;
+}
+.product-navbar .product-navbar-centered ul {
   margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
-  height: 100vh;
-  background: radial-gradient(#9E98FE, #93278F);
+  padding: 0;
+}
+.product-navbar .product-navbar-centered ul li {
+  float: left;
+  list-style: none;
+  margin-right: 30px;
+  padding-top: 9px;
+}
+.product-navbar .product-navbar-centered ul li a {
+  color: #6f7782;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: none !important;
 }
 
-#container {
-  margin-bottom: 40px;
-  padding: 20px;
+.hero {
+  background: #171b23;
+  padding-left: 0;
+  padding-right: 0;
+}
+.hero .container {
+  margin: 0 5vw;
+  padding: 0 0vw;
+  max-width: 90vw;
+}
+.hero .navbar-brand {
+  color: #fff;
+}
+.hero .navbar-brand img {
+  margin-right: 7px;
+  margin-top: -7px;
+}
+
+#about-main {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+}
+#about-main .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#about-main .jumbotron {
   width: 100%;
-  height: auto;
-  background: white;
-  border-radius: 20px;
-  max-width: 800px;
-  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.25));
-}
-#container h2 {
-  font-size: 22px;
-  font-family: "Open Sans", sans-serif;
-}
-@media screen and (min-width: 600px) {
-  #container .content {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-#container .achievement {
-  margin-top: 20px;
-  width: 100%;
-}
-#container .achievement .bar {
+  height: 530px;
+  background: black;
   position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  background-color: rgba(30, 30, 30, 0.05);
-  border-radius: 40px;
-  overflow: hidden;
+  margin: 0;
+  z-index: 3;
+  border-radius: 0px;
 }
-#container .achievement .bar .img-box {
+#about-main .jumbotron .img-layer-container {
   position: relative;
-  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: #1e1e1e;
-  border-radius: 50%;
 }
-#container .achievement .bar .img-box i {
-  color: #fff;
+#about-main .jumbotron .img-layer-container img {
+  max-width: 95vw;
 }
-#container .achievement .bar p {
-  position: relative;
-  z-index: 1;
-  color: #1e1e1e;
-  font-size: 18px;
-  font-family: "Open Sans", arial, sans-serif;
-}
-#container .achievement .bar .progress {
+#about-main .jumbotron .img-layer-container .team-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 100%;
-  background: linear-gradient(30deg, #64a9ff, #93ffa0);
-  border-radius: 20px;
-  transition: 1s ease;
 }
-#container .achievement .bar .progress.running {
-  animation-name: fill;
-  animation-delay: 0s;
-  animation-duration: 1s;
-  animation-iteration-count: "infinite";
-  animation-fill-mode: forwards;
+#about-main .jumbotron .img-layer-container .team-image img {
+  position: relative;
+  z-index: 3;
 }
-
-#button-bar {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: repeat(3, 1fr);
+#about-main .jumbotron .img-layer-container .circles-container {
+  position: absolute;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-@media screen and (min-width: 600px) {
-  #button-bar {
-    grid-gap: 40px;
-    grid-template-columns: repeat(6, 1fr);
+#about-main .jumbotron .img-layer-container .circles-container .img-1 {
+  position: absolute;
+  z-index: 2;
+}
+#about-main .jumbotron .img-layer-container .circles-container .img-2 {
+  position: absolute;
+  z-index: 5;
+}
+#about-main .jumbotron .jumbotron-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+}
+#about-main .jumbotron .jumbotron-inner a {
+  text-decoration: none;
+}
+#about-main .jumbotron .jumbotron-inner .top-box {
+  max-width: 950px;
+  margin: 0 auto;
+}
+#about-main .jumbotron .jumbotron-inner .top-box .content-box {
+  margin: 0 50px 35px;
+}
+#about-main .jumbotron .jumbotron-inner .top-box .content-box h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#about-main .jumbotron .jumbotron-inner .top-box .content-box p {
+  text-align: center;
+  color: #6f7782;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 15px;
+}
+@media (max-width: 1401px) {
+  #about-main .jumbotron {
+    height: 595px !important;
+  }
+  #about-main .jumbotron .jumbotron-inner {
+    max-width: 900px;
+  }
+  #about-main .jumbotron .jumbotron-inner .top-box {
+    max-width: 900px;
+  }
+  #about-main .jumbotron .jumbotron-inner .top-box .content-box {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  #about-main .jumbotron .jumbotron-inner .top-box .content-box h3 {
+    font-size: 35px;
+    margin: 5px 0px 20px 0px;
+    color: #6f7782;
+    font-weight: 300;
   }
 }
-#button-bar button {
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  border-radius: 50%;
-  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.25));
+@media (max-width: 1000px) {
+  #about-main .jumbotron .img-layer-container {
+    width: 100%;
+  }
 }
-#button-bar button:hover, #button-bar button:active, #button-bar button:focus {
-  cursor: pointer;
-  transition: 0.2s ease;
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+@media (max-width: 815px) {
+  #about-main .jumbotron .jumbotron-inner {
+    max-width: 600px;
+  }
 }
-#button-bar button i {
-  font-size: 1rem;
+@media (max-width: 640px) {
+  #about-main .jumbotron {
+    height: 400px !important;
+  }
+  #about-main .jumbotron .jumbotron-inner {
+    max-width: 550px;
+    padding: 0 20px;
+  }
+  #about-main .jumbotron .img-1, #about-main .jumbotron .img-2, #about-main .jumbotron .team-image {
+    display: none;
+  }
 }
-
-.reference {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  color: #fff;
-  font-family: arial;
-  text-decoration: none;
+@media (max-width: 420px) {
+  #about-main .jumbotron .jumbotron-inner {
+    max-width: 600px;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 400px) {
+  #about-main .jumbotron .jumbotron-inner .top-box .content-box {
+    margin: 30px 0;
+  }
+  #about-main .jumbotron .jumbotron-inner .top-box .content-box h1 {
+    font-size: 35px;
+  }
+  #about-main .jumbotron .jumbotron-inner .top-box .content-box p {
+    font-size: 16px;
+  }
+}
+#about-main .story-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 150px;
+}
+@media (max-width: 640px) {
+  #about-main .story-container {
+    margin-top: 80px;
+  }
+}
+#about-main .story-container .container-divider {
+  margin-top: 100px;
+}
+@media (max-width: 640px) {
+  #about-main .story-container .container-divider {
+    margin-top: 50px;
+  }
+}
+#about-main .story-container .need-for-dx-container, #about-main .story-container .our-tech-container, #about-main .story-container .origin-story-container, #about-main .story-container .today-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 815px) {
+  #about-main .story-container .need-for-dx-container, #about-main .story-container .our-tech-container, #about-main .story-container .origin-story-container, #about-main .story-container .today-container {
+    width: 100%;
+  }
+}
+#about-main .story-container .need-for-dx-container .img-container, #about-main .story-container .our-tech-container .img-container, #about-main .story-container .origin-story-container .img-container, #about-main .story-container .today-container .img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#about-main .story-container .need-for-dx-container .img-container img, #about-main .story-container .our-tech-container .img-container img, #about-main .story-container .origin-story-container .img-container img, #about-main .story-container .today-container .img-container img {
+  margin: 50px auto;
+}
+#about-main .story-container .need-for-dx-container h3, #about-main .story-container .our-tech-container h3, #about-main .story-container .origin-story-container h3, #about-main .story-container .today-container h3 {
+  color: #074e8c;
+}
+#about-main .story-container .need-for-dx-container p, #about-main .story-container .our-tech-container p, #about-main .story-container .origin-story-container p, #about-main .story-container .today-container p {
+  font-size: 15px;
+  margin-top: 20px;
+  color: #676a6c;
+}
+@media (max-width: 640px) {
+  #about-main .story-container .need-for-dx-container p, #about-main .story-container .our-tech-container p, #about-main .story-container .origin-story-container p, #about-main .story-container .today-container p {
+    font-size: 13px;
+  }
+}
+#about-main .story-container .need-for-dx-container ul, #about-main .story-container .our-tech-container ul, #about-main .story-container .origin-story-container ul, #about-main .story-container .today-container ul {
+  margin-top: 30px;
+  list-style-image: url("https://apimatic.io/img/theme/aboutUs/bullet.svg");
+}
+#about-main .story-container .need-for-dx-container ul li, #about-main .story-container .our-tech-container ul li, #about-main .story-container .origin-story-container ul li, #about-main .story-container .today-container ul li {
+  line-height: 25px;
+  padding-left: 5px;
+  color: #676a6c;
 }
 
 </style>

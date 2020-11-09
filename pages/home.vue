@@ -8,10 +8,17 @@
           <!-- sidebar-wrapper  -->
           <main class="page-content">
             <Header/>
-            <div class="home__pageContent">
+        <div v-if="loading">
+            <!-- here put a spinner or whatever you want to indicate that a request is in progress -->
+            <Loading/>
+        </div>
+
+        <div v-else>
+            <!-- request finished -->
+             <div class="home__pageContent">
               <div class="home__pageContentLeft">
                 <label>Enter UserName</label>
-                <input id="username" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
+                <input id="usernameid" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
                 <label> Enter Bio</label>
                 <input id="bio" type="text" v-model="bio" placeholder="Enter Bio"/>
                 <label> Enter Text Number</label>
@@ -98,12 +105,7 @@
                     </div>
                 </div>
             <div class="customization">
-                <button 
-                  type="button" 
-                  class="btn btn-danger" 
-                  v-on:click.prevent ="change">
-                    change
-                  </button>
+            
                   <div class="shows">
                     <div class="show__sms">
                         <label for="checkbox">Show SMS number</label>
@@ -126,6 +128,8 @@
               
               </div>
             </div>
+        </div>
+           
             
           </main>
           <!-- page-content" -->
@@ -138,14 +142,17 @@
 import $ from 'jquery'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
+import Loading from '../components/loading'
 
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
+import db from '../middleware/firebase'
+
 export default {
   components:{
     Sidebar,
-    Header
-
+    Header,
+    Loading
   },
   head(){
     return {
@@ -181,6 +188,7 @@ export default {
 
    data(){
         return{
+          loading: false,
           dp_image:"https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg",
           backgroundImage:"",
           callchecked:true,
@@ -238,12 +246,36 @@ export default {
         var txt;
         var r = confirm("You are about to set UserName Once set will not be changed. Do you agree");
         if (r == true) {
-            this.$store.commit('setUserName',this.username);
+     document.getElementById("usernameid").disabled = true;
+
+          // this.loading=true;
+          this.$store.commit('setUserName',this.username);
           this.$store.commit('setBio',this.bio);
-          this.$store.commit('addLinks',this.linklist);
+          // this.$store.commit('addLinks',this.linklist);
           this.$store.commit('setSmsNumber',this.smsnumber);
           this.$store.commit('setCallNumber',this.callnumber);
-          document.getElementById("username").disabled = true;
+            
+          	    db.database().ref("maindata").child(db.auth().currentUser.uid).set({
+									"setUserName":this.username,
+									"setBio":this.bio,
+                  "setSmsNumber":this.smsnumber,
+                  "smsChecked":this.smschecked,
+                  "setCallNumber":this.callnumber,
+                  "callChecked":this.callchecked,
+                  "dispalyPicture":this.dp_image,
+                  "backgroundImage":this.backgroundImage,
+                  "Links":this.linklist,
+									"uid":db.auth().currentUser.uid
+								},(err)=>{
+									if(err){
+										console.error(err);
+										alert(err.message)
+									}
+									else{
+                    console.log("DATA SAVED")	
+                    this.loading=false;
+									}
+								})
 
         } else {
           alert("Process Aborted..")
@@ -285,10 +317,10 @@ export default {
     ...mapState({
           loggedIn:state=>state.loggedIn,
           userName:state=>state.userName,
-          linkList:state=>state.linkList,
           Bio:state=>state.Bio,
           smsNumber:state=>state.smsNumber,
-          callNumber:state=>state.callNumber
+          callNumber:state=>state.callNumber,
+          UID:state=>state.UID
         }),
       
 
@@ -298,19 +330,9 @@ export default {
          this.$router.push({ path: '/login' })
         }
         else{
-          this.username=this.userName;
-          this.bio=this.Bio;
-          console.log(this.linkList)
-          this.linklist=[...this.linkList];
-          if(this.userName != ''){
-             this.disabled=true;
-
-          }
-          this.smsnumber=this.smsNumber;
-          this.callnumber=this.callNumber;
           
-
         }
+
     },
     mounted(){
 

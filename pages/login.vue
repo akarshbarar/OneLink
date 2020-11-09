@@ -94,6 +94,18 @@ components:{
 	Navbar,
 	Loading
 },
+created(){
+	db.auth().onAuthStateChanged((user) => {
+		if (user) {
+			// User logged in already or has just logged in.
+			this.$router.push({ path: '/home' })
+
+		
+		} else {
+			// User not logged in or has just logged out.
+		}
+		})
+},
   head: {
     title: "OneLink | Login",
     meta: [
