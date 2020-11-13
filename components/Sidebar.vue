@@ -139,7 +139,17 @@ export default {
         db.database().ref("Users").child(user.uid).on('value',(snap)=>{
             let details = snap.val();
             this.name=details.name;
-        }) 
+        });
+
+         db.database().ref("dispalypicture").child(user.uid).on('value',(snap)=>{
+                                   let datalist = snap.val();
+
+                                   this.displayPicture=datalist.displayPicture;
+                  
+
+               });
+
+
 
 		
 		} else {
@@ -158,7 +168,7 @@ export default {
   data(){
       return {
         name:'',
-        // displayPicture:'https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg'
+        displayPicture:'https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg'
       }
   },
  head(){

@@ -193,51 +193,53 @@ export default {
           backgroundImage:"",
           callchecked:true,
           smschecked:true,
-            smsnumber:0,
-            callnumber:0,
-             username:'',
-             bio:'',
-             link:'',
-             title:'',
-             titleList:[],
-             linklist:[],
-             color:'white',
-             backgroundColor:"content",
-             disabled:false
+          smsnumber:0,
+          callnumber:0,
+          username:'',
+          bio:'',
+          link:'',
+          title:'',
+          titleList:[],
+          linklist:[],
+          color:'white',
+          backgroundColor:"content",
+          disabled:false,
+          image:'',
+          downloadedURL:''
             
         }
     },
     methods:{
 
-  uploadImage(e) {
+      uploadImage(e) {
 
-                    const image = e.target.files[0];
-                    const reader = new FileReader();
-                    reader.readAsDataURL(image);
-                    reader.onload = e =>{
-                        this.dp_image = e.target.result;
-                        this.$store.commit('setDisplayPicture',e.target.result);
+                        this.image = e.target.files[0];
+                        const reader = new FileReader();
+                        reader.readAsDataURL(this.image);
+                        reader.onload = e =>{
+                            this.dp_image = e.target.result;
+                        };
+                    
+      },
+      uploadBackgroundImage(e) {
 
-                    };
-                
-  },
-  uploadBackgroundImage(e) {
+                        const image = e.target.files[0];
+                        const reader = new FileReader();
+                        reader.readAsDataURL(image);
+                        reader.onload = e =>{
+                            this.backgroundImage ="'"+ e.target.result+"'";
+                            this.$store.commit('setBackgroundImage',e.target.result);
 
-                    const image = e.target.files[0];
-                    const reader = new FileReader();
-                    reader.readAsDataURL(image);
-                    reader.onload = e =>{
-                        this.backgroundImage ="'"+ e.target.result+"'";
-                        this.$store.commit('setBackgroundImage',e.target.result);
-
-                    };
-                
-  },
+                        };
+                    
+      },
       addData:function(){
+
           this.linklist.push({
             title:this.title,
             link:this.link
           }),
+
           this.link="",
           this.title=""
           
@@ -246,7 +248,9 @@ export default {
         var txt;
         var r = confirm("You are about to set UserName Once set will not be changed. Do you agree");
         if (r == true) {
-     document.getElementById("usernameid").disabled = true;
+         alert("Please Wait while we are uplaoding data. We will Confirm you once done.")
+
+        document.getElementById("usernameid").disabled = true;
 
           // this.loading=true;
           this.$store.commit('setUserName',this.username);
@@ -255,14 +259,46 @@ export default {
           this.$store.commit('setSmsNumber',this.smsnumber);
           this.$store.commit('setCallNumber',this.callnumber);
             
-          	    db.database().ref("maindata").child(db.auth().currentUser.uid).set({
+           var uplaodTask= db.storage()
+            .ref(db.auth().currentUser.uid).child("DIsplayPicture")
+            .put(this.image);
+
+            uplaodTask.on('state_changed',
+            function(snapshot){          
+            },
+            function(err){
+              alert(err)
+            },
+            function(){
+               uplaodTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log('File available at', downloadURL);
+
+                    db.database().ref("dispalypicture").child(db.auth().currentUser.uid).set({
+                        "displayPicture":downloadURL,
+                        "uid":db.auth().currentUser.uid
+                      },(err)=>{
+                        if(err){
+                          console.error(err);
+                          alert(err.message)
+                        }
+                        else{
+                          console.log("DATA SAVED")	
+                          alert("Image Saved.")
+                          this.loading=false;
+                        }
+                      })
+                    });
+            }
+            
+            );
+             // SAVE DATA
+          db.database().ref("maindata").child(db.auth().currentUser.uid).set({
 									"setUserName":this.username,
 									"setBio":this.bio,
                   "setSmsNumber":this.smsnumber,
                   "smsChecked":this.smschecked,
                   "setCallNumber":this.callnumber,
                   "callChecked":this.callchecked,
-                  "dispalyPicture":this.dp_image,
                   "backgroundImage":this.backgroundImage,
                   "Links":this.linklist,
 									"uid":db.auth().currentUser.uid
@@ -273,10 +309,11 @@ export default {
 									}
 									else{
                     console.log("DATA SAVED")	
+                    alert("Data Saved.")
                     this.loading=false;
 									}
 								})
-
+        // Save DAta	  
         } else {
           alert("Process Aborted..")
         }
@@ -306,11 +343,7 @@ export default {
         if (index > -1) {
           this.linklist.splice(index, 1);
         }
-      },
-      preview:function(){
-        this.$router.push({ path: '/preview' })
-      }
-      
+      },  
     },
     computed:{
 
@@ -326,12 +359,50 @@ export default {
 
     },
     created(){
+   
         if(!this.loggedIn){
          this.$router.push({ path: '/login' })
         }
-        else{
+
+        db.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // User logged in already or has just logged in.
+               db.database().ref("dispalypicture").child(user.uid).on('value',(snap)=>{
+                                   let datalist = snap.val();
+
+                                   this.dp_image=datalist.displayPicture;
+                                   console.log('====================================');
+                                   console.log(datalist.displayPicture);
+                                   console.log('====================================');
+
+
+               });
+
+
+               db.database().ref("maindata").child(user.uid).on('value',(snap)=>{
+                  let datalist = snap.val();
+                  // document.getElementById("usernameid").disabled = true;
+
+                    this.username=datalist.setUserName;
+                    this.bio=datalist.setBio;
+                    this.callnumber=datalist.setCallNumber;
+                    this.smsnumber=datalist.setSmsNumber;
+                    this.smschecked=datalist.smsChecked;
+                    this.callchecked=datalist.callChecked;
+                    this.backgroundImage=datalist.backgroundImage;
+                    this.linklist=datalist.Links;
+                  
+                  
+                  
+              }) 
           
-        }
+          } else {
+            // User not logged in or has just logged out.
+             this.$router.push({ path: '/login' })
+
+          }
+          })
+       
 
     },
     mounted(){
