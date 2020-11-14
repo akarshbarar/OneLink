@@ -1,36 +1,50 @@
 <template>
   <div class="slug">
-           <!-- Alpha.ly Version 0.1 | Development Version -->
-    <div class="container">
-    <div class="col-xs-12">
-            <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-                <img class="backdrop linktree" :src="displayPicture" alt="User picture">
-                 <h2 style="color: #ffffff; padding-top: 20px;">{{username}}</h2>
-                 <h3 style="color: #ffffff; padding-top: 20px;">{{bio}}</h3>
-            </div>
-    </div>
-    </div>
 
-
-    <div class="container">
-    <div class="col-xs-12">
-          <div class="contact">
-                 <a :href="`tel:+${ callNumber }`" v-if="callChecked" class="fa fa-phone"></a>
-                 <a :href="`tel:+${ smsNumber }`" v-if="smsChecked" class="fa fa-comment" aria-hidden="true"></a>
-          </div>
-                
-            <div class="text-center" v-for="i in linkList" v-bind:key="i">
-                
-                <div style="padding-bottom: 30px;">
-                     <a v-bind:href="i.link" target="_blank" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">{{i.title}}</a>
+    <div v-if="check">
+            <div class="container">
+                <div class="col-xs-12">
+                        <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                            <img class="backdrop linktree" :src="displayPicture" alt="User picture">
+                            <h2 style="color: #ffffff; padding-top: 20px;">{{username}}</h2>
+                            <h3 style="color: #ffffff; padding-top: 20px;">{{bio}}</h3>
+                        </div>
                 </div>
-            </div>
+              </div>
+              <div class="container">
+              <div class="col-xs-12">
+                    <div class="contact">
+                          <a :href="`tel:+${ callNumber }`" v-if="callChecked" class="fa fa-phone"></a>
+                          <a :href="`tel:+${ smsNumber }`" v-if="smsChecked" class="fa fa-comment" aria-hidden="true"></a>
+                    </div>
+                          
+                      <div class="text-center" v-for="i in linkList" v-bind:key="i">
+                          
+                          <div style="padding-bottom: 30px;">
+                              <a v-bind:href="i.link" target="_blank" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">{{i.title}}</a>
+                          </div>
+                      </div>
+              </div>
+              </div>
+              <div class="text-center">
+                      <a href="#" style="color: #34312f;">powered by OneLink</a>
+              </div>
     </div>
+    <div v-else>
+
+
+          <div class="error">
+            <div class="noise"></div>
+              <div class="overlay"></div>
+              <div class="terminal">
+              <h1>Error <span class="errorcode">404</span>: PAGE NOT FOUND</h1>
+              <p class="output">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+              <p class="output">Please try to <nuxt-link to="/" class="back">go back</nuxt-link> or <nuxt-link to="/" class="back">return to the homepage</nuxt-link>.</p>
+              <p class="output">Good luck .</p>
+            </div>
+        </div>
     </div>
 
-        <div class="text-center">
-            <a href="#" style="color: #34312f;">powered by OneLink</a>
-        </div>
   </div>
 </template>
 
@@ -38,6 +52,13 @@
 import db from '../middleware/firebase';
 
   export default {
+    asyncData () {
+			return new Promise((resolve) => {
+			setTimeout(function () {
+				resolve({})
+			}, 1000)
+			})
+		},
     async asyncData({ params }) {
       const slug = params.slug // When calling /abc the slug will be "abc"
       return { slug }
@@ -74,6 +95,7 @@ import db from '../middleware/firebase';
   },
   data(){
     return{
+        check:true,
         username:'',
         bio:'',
         displayPicture:'',
@@ -93,6 +115,8 @@ import db from '../middleware/firebase';
             let datalist = snap.val();
             let slugData=[];
             for(let data in datalist){
+                            
+
              if(datalist[data].setUserName===this.slug){
 
                this.username=datalist[data].setUserName;
@@ -109,9 +133,11 @@ import db from '../middleware/firebase';
                     db.database().ref("dispalypicture").child(datalist[data].uid).on('value',(snap)=>{
                                   let datalist = snap.val();
                                   this.displayPicture=datalist.displayPicture;
-               });
+                     });
              
-              break;               
+             }
+             else{
+                this.check=false;
              }
             }
             console.log(slugData)
@@ -231,4 +257,132 @@ h6 {
 	  background-repeat: no-repeat;
 	  background-position: 50% 50%;
   }
+
+
+
+
+
+.error {
+  box-sizing: border-box;
+  height: 100%;
+  background-color: black;
+  background-image: radial-gradient(#11581E, #041607), url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Inconsolata', Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: rgba(128, 255, 128, 0.8);
+  text-shadow:
+      0 0 1ex rgba(51, 255, 51, 1),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.noise {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+      repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0) 100%);
+  background-size: auto 4px;
+  z-index: 1;
+}
+
+.overlay::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(32, 128, 32, 0.2) 2%,
+      rgba(32, 128, 32, 0.8) 3%,
+      rgba(32, 128, 32, 0.2) 3%,
+      transparent 100%);
+  background-repeat: repeat;
+  animation: scan 7.5s linear 0s infinite;
+}
+
+@keyframes scan {
+  0%        { background-position: 0 -100vh; }
+  35%, 100% { background-position: 0 100vh; }
+}
+
+.terminal {
+  background-color: black;
+  box-sizing: inherit;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 4rem;
+  text-transform: uppercase;
+}
+
+.output {
+  color: rgba(128, 255, 128, 0.8);
+  text-shadow:
+      0 0 1px rgba(51, 255, 51, 0.4),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.output::before {
+  content: "> ";
+}
+
+/*
+.input {
+  color: rgba(192, 255, 192, 0.8);
+  text-shadow:
+      0 0 1px rgba(51, 255, 51, 0.4),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.input::before {
+  content: "$ ";
+}
+*/
+
+.back {
+  color: #fff;
+  text-decoration: none;
+}
+
+.back::before {
+  content: "[";
+}
+
+.back::after {
+  content: "]";
+}
+
+.errorcode {
+  color: white;
+}
+@media screen and (max-width: 480px) {
+  .terminal {
+      padding: 0rem;
+    }
+}
 </style>

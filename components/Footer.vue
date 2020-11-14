@@ -7,8 +7,6 @@
               <li><a href=""><i class="fa fa-facebook"></i></a></li>
               <li><a href=""><i class="fa fa-twitter"></i></a></li>
               <li><a href=""><i class="fa fa-instagram"></i></a></li>
-              <li><a href=""><i class="fa fa-youtube"></i></a></li>
-              <li><a href=""><i class="fa fa-linkedin"></i></a></li>
             </ul>
       </div>
       <p>Copyright 2020 OnLink</p>
@@ -21,12 +19,12 @@
 
         <div class="span12">
 			<div class="subscrib homesub">
-				<form> 
+				<form @submit.prevent="subscribe"> 
 	        <!--   Big Title wrap -->	
 
 						  <h1>Subscribe to our newsletter</h1>	
 				<p>
-					<input type="email" placeholder="Enter Email" />
+				  <input type="email" placeholder="Enter Email" v-model="subscribeemail" />
 				  <input type="submit" class="submit button purchase btn-sent " value="Subscribe Now">
 				</p>
 
@@ -46,15 +44,34 @@
 </template>
 
 <script>
+import db from '../middleware/firebase'
 import $ from 'jquery'
 export default {
+    data(){
+        return{
+            subscribeemail:''
+        }
+    },
 
 mounted(){
 
 },
 methods:{
   subscribe:function(){
-    
+     
+        db.database().ref("NewsletterSubscribe").push().set({
+
+									"email":this.subscribeemail,
+								
+								},(err)=>{
+									if(err){
+										console.error(err);
+										alert(err.message)
+									}
+									else{
+										
+									}
+								})
   }
 }
 
@@ -271,16 +288,15 @@ a.button, .button {
     flex-direction: column;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .footer{
     display: flex;
     flex-direction: column;
   }
-   .social-menu{
-      display: grid;
-      grid-template-columns: repeat(5,20px);
-      /* justify-content: space-evenly; */
-  }
+   /* .social-menu > ul{
+     display: flex;
+     flex-direction: column;
+  } */
   .subscrib > form >p {
     display: flex;
     flex-direction: column;

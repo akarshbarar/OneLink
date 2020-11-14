@@ -31,7 +31,7 @@
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
-							<a href="#forgot">Forgot Password?</a>
+							<nuxt-link to="/forgotpassword">Forgot Password?</nuxt-link>
 						</div>
 					</div>
 					<div class="sign-up-htm">

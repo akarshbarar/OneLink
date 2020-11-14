@@ -17,6 +17,9 @@
             <!-- request finished -->
              <div class="home__pageContent">
               <div class="home__pageContentLeft">
+                 <label>Your Link is:</label>
+                <input type="text" :disabled="true"   v-model="linkusername" />
+
                 <label>Enter UserName</label>
                 <input id="usernameid" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
                 <label> Enter Bio</label>
@@ -49,7 +52,7 @@
                 <div class="example">
                 
                  
-                  <table class="table">
+                  <table class="table table-sm">
                         <thead>
                           <tr>
                            
@@ -143,7 +146,7 @@ import $ from 'jquery'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import Loading from '../components/loading'
-
+import usernames from '../middleware/username'
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
 import db from '../middleware/firebase'
@@ -189,6 +192,7 @@ export default {
    data(){
         return{
           loading: false,
+          linkusername:"onelink.in/"+this.username,
           dp_image:"https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg",
           backgroundImage:"",
           callchecked:true,
@@ -246,12 +250,17 @@ export default {
       },
       save:function(){
         var txt;
-        var r = confirm("You are about to set UserName Once set will not be changed. Do you agree");
+       var index= usernames.indexOf(this.username);
+       if(index>0){
+         alert("Please use another username. Username already taken");
+       }
+       else{
+            var r = confirm("You are about to set UserName Once set will not be changed. Do you agree");
         if (r == true) {
          alert("Please Wait while we are uplaoding data. We will Confirm you once done.")
 
         document.getElementById("usernameid").disabled = true;
-
+         usernames.push(this.username);
           // this.loading=true;
           this.$store.commit('setUserName',this.username);
           this.$store.commit('setBio',this.bio);
@@ -317,7 +326,8 @@ export default {
         } else {
           alert("Process Aborted..")
         }
-       
+       }
+
       },
       change:function(){
           console.log('====================================');
@@ -369,20 +379,14 @@ export default {
             // User logged in already or has just logged in.
                db.database().ref("dispalypicture").child(user.uid).on('value',(snap)=>{
                                    let datalist = snap.val();
-
                                    this.dp_image=datalist.displayPicture;
-                                   console.log('====================================');
-                                   console.log(datalist.displayPicture);
-                                   console.log('====================================');
-
-
                });
 
 
                db.database().ref("maindata").child(user.uid).on('value',(snap)=>{
                   let datalist = snap.val();
                   // document.getElementById("usernameid").disabled = true;
-
+                    this.disabled=true;
                     this.username=datalist.setUserName;
                     this.bio=datalist.setBio;
                     this.callnumber=datalist.setCallNumber;
@@ -391,9 +395,7 @@ export default {
                     this.callchecked=datalist.callChecked;
                     this.backgroundImage=datalist.backgroundImage;
                     this.linklist=datalist.Links;
-                  
-                  
-                  
+    
               }) 
           
           } else {
@@ -763,8 +765,12 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 /* https://codepen.io/P1N2O/pen/pyBNzX */
 /*  */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
 
+  .home__pageContent{
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 @media screen and (max-width: 500px) {
   .simulator{
@@ -772,6 +778,9 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
   }
 
   .home__pageContentRight > .btn-danger{
+    display: none;
+  }
+  .home__pageContentRight{
     display: none;
   }
 }

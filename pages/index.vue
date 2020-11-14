@@ -11,7 +11,7 @@
           <p class="tagline">OneLink is all you Need</p>
           <span>Connect your audience with OneLink</span>
           <h1 class="cta">Create Your Own OneLink Here</h1>
-          <form>
+          <form @click.prevent="getStarted">
             <div class="index__leftGetStarted">
               <div class="index__leftGetStartedInput">
                 <div class="onelink">
@@ -212,7 +212,7 @@
                 <i class="fa fa-remove"></i>
               </a>
               <div class="answer">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?</p>
+                <p>OneLink is a site where you can add your links and details and share the link provided by us anywhere you want.</p>
               </div>
             </div>
 
@@ -223,7 +223,9 @@
                 <i class="fa fa-remove"></i>
               </a>
               <div class="answer">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?</p>
+                <p>
+                  You can use OneLink anywhere you want on your instagram bio, on your business card and anywhere you like.
+                </p>
               </div>
             </div>
 
@@ -234,7 +236,10 @@
                 <i class="fa fa-remove"></i>
               </a>
               <div class="answer">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?</p>
+                <p>Why you should use OnLink?.<br>
+                  The answer to this is OneLink is free to use and being the application is Open Source there is no chance of data breech.
+                  We pledge to keep your data private like we keep ours.
+                </p>
               </div>
             </div>
 
@@ -245,7 +250,7 @@
                 <i class="fa fa-remove"></i>
               </a>
               <div class="answer">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil consequatur eius voluptate minus eveniet. Nulla ex deserunt perspiciatis excepturi magni ducimus molestias quas, consequatur unde nihil corporis libero quibusdam architecto?</p>
+                <p>OneLink is free of cost and will always be free of cost.</p>
               </div>
             </div>
           </div>
@@ -288,7 +293,12 @@ export default {
     Navbar,
     Footer
   },
-  methods: {},
+  methods: {
+    getStarted:function(){
+     this.$router.push({ path: '/login' })
+
+    }
+  },
   mounted() {
 
   },
@@ -1024,7 +1034,7 @@ span {
     display: none;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 662px) {
   .index__leftGetStartedInput{
     display: none;
   }
