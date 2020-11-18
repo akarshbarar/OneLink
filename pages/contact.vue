@@ -7,7 +7,7 @@
       <div>
         <h2>Contact Us</h2>
         <ul class="info">
-          <li>
+          <!-- <li>
             <span>
               <img src="https://www.clipartmax.com/png/middle/121-1214856_pro-locator-free-location-icon-vector.png" />
             </span>
@@ -16,7 +16,7 @@
               Smithville <br />
               Smithland
             </span>
-          </li>
+          </li> -->
           <li>
             <span>
               <img src="https://p7.hiclipart.com/preview/663/97/225/email-computer-icons-message-bounce-address-email-icon.jpg" />
@@ -38,27 +38,27 @@
     </div>
     <div class="contactusform">
       <h2>Send Us A Message</h2>
-      <div class="formBox">
+      <form class="formBox">
         <div class="inputBox w50">
-          <input type="text" name="" required>
+          <input  v-model="conatus__firstname" type="text" name="" required>
           <span>First Name</span>
         </div>
         <div class="inputBox w50">
-          <input type="text" name="" required>
+          <input v-model="conatus__lastname"  type="text" name="" required>
           <span>Last Name</span>
         </div>
         <div class="inputBox w50">
-          <input type="text" name="" required>
+          <input  v-model="conatus__email"  type="text" name="" required>
           <span>Email Address</span>
         </div>
         <div class="inputBox w100">
-          <textarea name="" required></textarea>
+          <textarea name=""  v-model="conatus__message"  required></textarea>
           <span>Please enter a message</span>
         </div>
         <div class="inputBox w50">
-          <input type="submit" value="Send">
+          <button type="submit" >Send</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -67,6 +67,7 @@
 
 <script>
 import Navbar from "../components/Navbar";
+import db from '../middleware/firebase'
 
 export default {
   head: {

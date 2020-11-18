@@ -18,7 +18,7 @@
              <div class="home__pageContent">
               <div class="home__pageContentLeft">
                  <label>Your Link is:</label>
-                <input type="text" :disabled="true"   v-model="linkusername" />
+                <input v-if="displaylink" type="text" :disabled="true"   v-model="linkusername" />
 
                 <label>Enter UserName</label>
                 <input id="usernameid" type="text" :disabled="disabled"   v-model="username" placeholder="Enter UserName"/>
@@ -119,10 +119,10 @@
                        <label for="checkbox">Show Call number</label>
                        <input type="checkbox" id="checkbox" v-model="callchecked">
                     </div>
-                     <div class="show__background">
+                     <!-- <div class="show__background">
                        <label> Upload Background Image</label>
                        <input  accept="image/*" @change="uploadBackgroundImage($event)" type="file" />
-                    </div>
+                    </div> -->
                   
                    
                   </div>
@@ -191,8 +191,9 @@ export default {
 
    data(){
         return{
+          displaylink:false,
           loading: false,
-          linkusername:"onelink.in/"+this.username,
+          linkusername:'',
           dp_image:"https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg",
           backgroundImage:"",
           callchecked:true,
@@ -267,7 +268,10 @@ export default {
           // this.$store.commit('addLinks',this.linklist);
           this.$store.commit('setSmsNumber',this.smsnumber);
           this.$store.commit('setCallNumber',this.callnumber);
-            
+
+            this.linkusername="onlink.in/"+this.username;
+            this.displaylink=true;
+
            var uplaodTask= db.storage()
             .ref(db.auth().currentUser.uid).child("DIsplayPicture")
             .put(this.image);
@@ -385,7 +389,10 @@ export default {
 
                db.database().ref("maindata").child(user.uid).on('value',(snap)=>{
                   let datalist = snap.val();
-                  // document.getElementById("usernameid").disabled = true;
+                  //  document.getElementById("usernameid").disabled = true;
+              this.linkusername="onlink.in/"+datalist.setUserName;
+            this.displaylink=true;
+
                     this.disabled=true;
                     this.username=datalist.setUserName;
                     this.bio=datalist.setBio;
@@ -414,7 +421,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .customization{
   margin-bottom: 10px;
    display: flex;

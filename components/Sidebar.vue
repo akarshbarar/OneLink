@@ -162,7 +162,6 @@ export default {
   computed:{
     ...mapState({
       Name:state=>state.Name,
-      displayPicture:state=>state.displayPicture
     }),
   },
   data(){

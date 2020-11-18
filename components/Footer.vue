@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
     <div class="footer__socialmedia">
-      <p>Made with 💖 in India</p>
       <div class="social-menu">
             <ul>
               <li><a href=""><i class="fa fa-facebook"></i></a></li>
@@ -9,7 +8,7 @@
               <li><a href=""><i class="fa fa-instagram"></i></a></li>
             </ul>
       </div>
-      <p>Copyright 2020 OnLink</p>
+      <p>Made with 💖 in India</p>
     </div>
     <div class="col-wrap "><!-- style col-shadow/ col-gray/ testimonial/-->
 	<div class="container ">

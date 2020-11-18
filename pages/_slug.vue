@@ -52,13 +52,7 @@
 import db from '../middleware/firebase';
 
   export default {
-    asyncData () {
-			return new Promise((resolve) => {
-			setTimeout(function () {
-				resolve({})
-			}, 1000)
-			})
-		},
+  
     async asyncData({ params }) {
       const slug = params.slug // When calling /abc the slug will be "abc"
       return { slug }
@@ -128,19 +122,20 @@ import db from '../middleware/firebase';
                this.callChecked=datalist[data].callChecked;
                this.backgroundImage=datalist[data].backgroundImage;
                this.linkList=datalist[data].Links;
-                this.uid=datalist[data].uid;
+               this.uid=datalist[data].uid;
 
-                    db.database().ref("dispalypicture").child(datalist[data].uid).on('value',(snap)=>{
-                                  let datalist = snap.val();
-                                  this.displayPicture=datalist.displayPicture;
-                     });
+              db.database()
+                .ref("dispalypicture")
+                .child(datalist[data].uid)
+                .on('value',(snap)=>{
+                            let datalist = snap.val();
+                            this.displayPicture=datalist.displayPicture;
+               });
              
              }
              else{
-                this.check=false;
              }
             }
-            console.log(slugData)
         }) 
   }
  
@@ -252,7 +247,6 @@ h6 {
   .linktree {
 	  width: 120px;
 	  height: 120px;
-	  background-image: url("");
 	  background-size: cover;
 	  background-repeat: no-repeat;
 	  background-position: 50% 50%;
