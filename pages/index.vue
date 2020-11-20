@@ -47,11 +47,6 @@
       </div>
     </section>
 
-  <div class="index__slider">
-       
-   
-
-  </div>
 
     <div class="index__middle" id="middle">
       <div class="index__middleRow">
@@ -195,7 +190,7 @@
         </div>
         <div class="index__middledata">
           <h1>Use it anywhere</h1>
-          <p>OneLink for all your important stuffs</p>
+          <h2>OneLink for all your important links</h2>
         </div>
       </div>
     </div>
@@ -257,6 +252,26 @@
         </div>
       </section>
     </div>
+
+
+  <div class="index__slider">
+       	<section id="about">
+        <h1>About Us</h1>
+        <p>
+         OneLink is a platform for all Content creators. Here you can add as many that you want and share all links at once.
+        </p>
+
+        <h2>Follow Me On Social Media</h2>
+
+        <div class="social">
+        <a href="" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+          <a href="" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
+          <a href="" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+        </div>
+      </section>
+   
+
+  </div>
 
     <div class="index__CTA">
       <h1>Create your OneLink Now</h1>
@@ -1079,6 +1094,50 @@ span {
   }
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+
+
+:root {
+	--primary-color: #3a4052;
+}
+a {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
+h1 {
+	font-weight: 300;
+	font-size:clamp(20px,10vw,60px);
+	line-height: 1.2;
+	margin-bottom: 15px;
+}
+
+
+
+
+
+
+#about {
+	padding: 40px;
+	text-align: center;
+}
+
+#about p {
+	font-size: 1.2rem;
+	max-width: 600px;
+	margin: auto;
+}
+
+#about h2 {
+	margin: 30px 0;
+	color: var(--primary-color);
+}
+
+.social a {
+	margin: 0 5px;
+}
 
 
 

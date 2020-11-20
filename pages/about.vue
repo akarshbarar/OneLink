@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="img-layer-container">
+            <!-- <div class="img-layer-container">
                 <div class="team-image" id="team-image">
                     <img src="https://apimatic.io/img/theme/aboutUs/images-1.png" />
                 </div>
@@ -32,7 +32,7 @@
                         <img src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />                        
                     </div>                    
                 </div>           
-            </div>
+            </div> -->
         </div>
         <div class="story-container">
             <div class="need-for-dx-container">

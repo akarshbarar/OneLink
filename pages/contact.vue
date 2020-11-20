@@ -22,23 +22,23 @@
               <img src="https://p7.hiclipart.com/preview/663/97/225/email-computer-icons-message-bounce-address-email-icon.jpg" />
             </span>
             <span>
-              johnsmith@johnsmith.com
+              onlink@gmail.com
             </span>
           </li>
-          <li>
+          <!-- <li>
             <span>
               <img src="https://www.pinclipart.com/picdir/middle/210-2108807_tete-mobile-svg-png-icon-free-download-phone.png" />
             </span>
             <span>
               01234567890
             </span>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
     <div class="contactusform">
       <h2>Send Us A Message</h2>
-      <form class="formBox">
+      <form class="formBox" @submit.prevent="contactSubmit">
         <div class="inputBox w50">
           <input  v-model="conatus__firstname" type="text" name="" required>
           <span>First Name</span>
@@ -48,7 +48,7 @@
           <span>Last Name</span>
         </div>
         <div class="inputBox w50">
-          <input  v-model="conatus__email"  type="text" name="" required>
+          <input  v-model="conatus__email"  type="email" name="" required>
           <span>Email Address</span>
         </div>
         <div class="inputBox w100">
@@ -56,7 +56,7 @@
           <span>Please enter a message</span>
         </div>
         <div class="inputBox w50">
-          <button type="submit" >Send</button>
+          <input type="submit" value="Send">
         </div>
       </form>
     </div>
@@ -86,9 +86,36 @@ export default {
     ],
     
   },
+  data(){
+    return{
+      conatus__firstname:'',
+      conatus__lastname:'',
+      conatus__email:'',
+      conatus__message:'',
+    }
+  },
   components: {
     Navbar
   },
+  methods:{
+    contactSubmit:function(){
+
+          db.database().ref("ContactUs").push().set({
+									"fname":this.conatus__firstname,
+									"lname":this.conatus__lastname,
+									"email":this.conatus__email,
+									"messsage":this.conatus__message
+								},(err)=>{
+									if(err){
+										console.error(err);
+										alert(err.message)
+									}
+									else{
+										alert("Thank You for Contacting")
+									}
+								});
+    }
+  }
 }
 </script>
 
@@ -133,9 +160,10 @@ export default {
   list-style: none;
   display: -webkit-box;
   display: flex;
+  justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-  margin: 20px 0;
+  margin: 120px 0;
   cursor: pointer;
 }
 .container .contactinfo .info li span:nth-child(1) {
