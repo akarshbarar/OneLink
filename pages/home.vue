@@ -269,7 +269,7 @@ export default {
           this.$store.commit('setSmsNumber',this.smsnumber);
           this.$store.commit('setCallNumber',this.callnumber);
 
-            this.linkusername="onlink.in/"+this.username;
+            this.linkusername="https://onlink-ten.vercel.app/"+this.username;
             this.displaylink=true;
 
            var uplaodTask= db.storage()
