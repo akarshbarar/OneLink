@@ -390,7 +390,7 @@ export default {
                db.database().ref("maindata").child(user.uid).on('value',(snap)=>{
                   let datalist = snap.val();
                   //  document.getElementById("usernameid").disabled = true;
-              this.linkusername="onlink.in/"+datalist.setUserName;
+              this.linkusername="https://onlink-ten.vercel.app/"+datalist.setUserName;
             this.displaylink=true;
 
                     this.disabled=true;
